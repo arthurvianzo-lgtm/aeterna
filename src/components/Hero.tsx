@@ -155,127 +155,154 @@ export default function Hero() {
               </span>
             </div>
 
-            {/* SVG Product Bottle */}
+            {/* SVG Product Display */}
             <div className="mt-5 flex items-center justify-center">
               <svg
-                viewBox="0 0 400 500"
+                viewBox="0 0 500 450"
                 className="h-72 w-auto"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                {/* Background glow */}
                 <defs>
-                  <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#10b981" stopOpacity="0.15" />
-                    <stop offset="100%" stopColor="#10b981" stopOpacity="0" />
-                  </radialGradient>
-                  <linearGradient id="bottleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#065f46" />
-                    <stop offset="50%" stopColor="#059669" />
-                    <stop offset="100%" stopColor="#065f46" />
+                  {/* Gold gradient for display */}
+                  <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#fbbf24" />
+                    <stop offset="50%" stopColor="#f59e0b" />
+                    <stop offset="100%" stopColor="#d97706" />
                   </linearGradient>
-                  <linearGradient id="capGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+
+                  {/* Green gradient for bottles */}
+                  <linearGradient id="bottleGreen" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#064e3b" />
+                    <stop offset="30%" stopColor="#059669" />
+                    <stop offset="70%" stopColor="#059669" />
+                    <stop offset="100%" stopColor="#064e3b" />
+                  </linearGradient>
+
+                  {/* Cap gradient */}
+                  <linearGradient id="capGold" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#b45309" />
-                    <stop offset="50%" stopColor="#d97706" />
+                    <stop offset="50%" stopColor="#f59e0b" />
                     <stop offset="100%" stopColor="#b45309" />
                   </linearGradient>
-                  <linearGradient id="labelGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="#ffffff" stopOpacity="0.95" />
-                    <stop offset="100%" stopColor="#f0fdf4" stopOpacity="0.9" />
+
+                  {/* Label gradient */}
+                  <linearGradient id="labelWhite" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#ffffff" />
+                    <stop offset="100%" stopColor="#f0fdf4" />
                   </linearGradient>
+
+                  {/* Shadow */}
+                  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="0" dy="4" stdDeviation="8" floodOpacity="0.15" />
+                  </filter>
                 </defs>
 
-                {/* Glow effect */}
-                <circle cx="200" cy="250" r="180" fill="url(#glow)" />
-
-                {/* Bottle shadow */}
-                <ellipse cx="200" cy="470" rx="70" ry="12" fill="#000000" opacity="0.1" />
-
-                {/* Bottle body */}
+                {/* Display platform */}
                 <path
-                  d="M140 120 L140 400 Q140 440 200 440 Q260 440 260 400 L260 120 Z"
-                  fill="url(#bottleGradient)"
-                  stroke="#047857"
-                  strokeWidth="2"
+                  d="M50 380 L250 420 L450 380 L450 390 L250 430 L50 390 Z"
+                  fill="url(#goldGradient)"
+                  opacity="0.9"
                 />
+                <rect x="50" y="370" width="400" height="15" fill="#fef3c7" stroke="#f59e0b" strokeWidth="1" />
 
-                {/* Bottle neck */}
-                <rect x="155" y="80" width="90" height="45" fill="url(#bottleGradient)" stroke="#047857" strokeWidth="2" />
+                {/* Background bottles (smaller, behind) */}
+                <g transform="translate(80, 200) scale(0.85)">
+                  <path d="M30 40 L30 160 Q30 190 60 190 Q90 190 90 160 L90 40 Z" fill="url(#bottleGreen)" opacity="0.7" />
+                  <rect x="40" y="25" width="40" height="20" fill="url(#bottleGreen)" opacity="0.7" />
+                  <path d="M35 10 L35 25 Q35 28 40 28 L80 28 Q85 28 85 25 L85 10 Q85 5 60 5 Q35 5 35 10" fill="url(#capGold)" opacity="0.7" />
+                </g>
 
-                {/* Cap */}
-                <path
-                  d="M150 60 L150 80 Q150 85 155 85 L245 85 Q250 85 250 80 L250 60 Q250 50 200 50 Q150 50 150 60"
-                  fill="url(#capGradient)"
-                  stroke="#92400e"
-                  strokeWidth="2"
-                />
+                <g transform="translate(320, 200) scale(0.85)">
+                  <path d="M30 40 L30 160 Q30 190 60 190 Q90 190 90 160 L90 40 Z" fill="url(#bottleGreen)" opacity="0.7" />
+                  <rect x="40" y="25" width="40" height="20" fill="url(#bottleGreen)" opacity="0.7" />
+                  <path d="M35 10 L35 25 Q35 28 40 28 L80 28 Q85 28 85 25 L85 10 Q85 5 60 5 Q35 5 35 10" fill="url(#capGold)" opacity="0.7" />
+                </g>
 
-                {/* Label background */}
-                <rect x="155" y="160" width="90" height="120" rx="8" fill="url(#labelGradient)" stroke="#d1fae5" strokeWidth="1" />
+                {/* Main front bottle */}
+                <g transform="translate(175, 150)" filter="url(#shadow)">
+                  {/* Bottle body */}
+                  <path
+                    d="M25 50 L25 200 Q25 240 75 240 Q125 240 125 200 L125 50 Z"
+                    fill="url(#bottleGreen)"
+                    stroke="#047857"
+                    strokeWidth="2"
+                  />
 
-                {/* Label text - Brand */}
-                <text x="200" y="195" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="18" fontWeight="bold" fill="#065f46">
-                  AETERNA
-                </text>
+                  {/* Bottle neck */}
+                  <rect x="45" y="30" width="60" height="25" fill="url(#bottleGreen)" stroke="#047857" strokeWidth="2" />
 
-                {/* Label text - Product */}
-                <text x="200" y="220" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="12" fontWeight="600" fill="#047857">
-                  Creatina
-                </text>
+                  {/* Cap */}
+                  <path
+                    d="M40 10 L40 30 Q40 33 45 33 L105 33 Q110 33 110 30 L110 10 Q110 0 75 0 Q40 0 40 10"
+                    fill="url(#capGold)"
+                    stroke="#92400e"
+                    strokeWidth="2"
+                  />
 
-                {/* Label text - Flavor */}
-                <text x="200" y="245" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="10" fill="#6b7280">
-                  Morango Cristalino
-                </text>
+                  {/* Label */}
+                  <rect x="35" y="80" width="80" height="100" rx="6" fill="url(#labelWhite)" stroke="#d1fae5" strokeWidth="1" />
 
-                {/* Label decorative line */}
-                <line x1="165" y1="255" x2="235" y2="255" stroke="#10b981" strokeWidth="2" />
-
-                {/* Label weight */}
-                <text x="200" y="275" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="11" fontWeight="bold" fill="#374151">
-                  300g
-                </text>
-
-                {/* Badge: 100% REGULADO */}
-                <g transform="translate(60, 140)">
-                  <rect x="0" y="0" width="75" height="24" rx="12" fill="#ecfdf5" stroke="#10b981" strokeWidth="1.5" />
-                  <text x="37.5" y="16" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="9" fontWeight="bold" fill="#047857">
-                    100% REGULADO
+                  {/* Label content */}
+                  <text x="75" y="105" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="14" fontWeight="bold" fill="#065f46">
+                    AETERNA
+                  </text>
+                  <text x="75" y="125" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="10" fontWeight="600" fill="#047857">
+                    CREATINA
+                  </text>
+                  <text x="75" y="145" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="8" fill="#6b7280">
+                    Morango Cristalino
+                  </text>
+                  <line x1="45" y1="152" x2="105" y2="152" stroke="#10b981" strokeWidth="1.5" />
+                  <text x="75" y="168" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="9" fontWeight="bold" fill="#374151">
+                    60 Gummies
                   </text>
                 </g>
 
-                {/* Badge: ZERO TRABALHO */}
-                <g transform="translate(265, 180)">
-                  <rect x="0" y="0" width="70" height="24" rx="12" fill="#fef3c7" stroke="#d97706" strokeWidth="1.5" />
-                  <text x="35" y="16" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="9" fontWeight="bold" fill="#92400e">
+                {/* Floating badges */}
+                {/* 100% REGULADO - ANVISA */}
+                <g transform="translate(20, 80)">
+                  <rect x="0" y="0" width="100" height="28" rx="14" fill="#ecfdf5" stroke="#10b981" strokeWidth="2" />
+                  <text x="50" y="18" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="9" fontWeight="bold" fill="#047857">
+                    100% REGULADO
+                  </text>
+                  <text x="50" y="38" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="7" fill="#047857">
+                    ANVISA
+                  </text>
+                </g>
+
+                {/* ZERO TRABALHO */}
+                <g transform="translate(380, 100)">
+                  <rect x="0" y="0" width="85" height="28" rx="14" fill="#fef3c7" stroke="#d97706" strokeWidth="2" />
+                  <text x="42.5" y="18" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="9" fontWeight="bold" fill="#92400e">
                     ZERO TRABALHO
                   </text>
                 </g>
 
-                {/* Badge: +100% MARGEM */}
-                <g transform="translate(50, 320)">
-                  <rect x="0" y="0" width="80" height="24" rx="12" fill="#ecfdf5" stroke="#10b981" strokeWidth="1.5" />
-                  <text x="40" y="16" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="9" fontWeight="bold" fill="#047857">
-                    +100% MARGEM
+                {/* +100% MARGEM MÉDIA */}
+                <g transform="translate(30, 320)">
+                  <rect x="0" y="0" width="110" height="28" rx="14" fill="#ecfdf5" stroke="#10b981" strokeWidth="2" />
+                  <text x="55" y="18" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="9" fontWeight="bold" fill="#047857">
+                    +100% MARGEM MÉDIA
                   </text>
                 </g>
 
-                {/* Badge: Turnkey */}
-                <g transform="translate(270, 300)">
-                  <rect x="0" y="0" width="60" height="24" rx="12" fill="#f0fdf4" stroke="#059669" strokeWidth="1.5" />
-                  <text x="30" y="16" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="9" fontWeight="bold" fill="#065f46">
+                {/* Turnkey icon */}
+                <g transform="translate(390, 290)">
+                  <circle cx="20" cy="20" r="20" fill="#f0fdf4" stroke="#059669" strokeWidth="2" />
+                  <text x="20" y="24" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="10" fontWeight="bold" fill="#065f46">
+                    ✓
+                  </text>
+                  <text x="20" y="50" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="8" fontWeight="bold" fill="#065f46">
                     Turnkey
                   </text>
                 </g>
 
-                {/* Small icon badges */}
-                <circle cx="85" cy="250" r="18" fill="#ffffff" stroke="#e5e7eb" strokeWidth="1" />
-                <text x="85" y="255" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="14" fill="#10b981">
-                  ✓
+                {/* Performance text */}
+                <text x="250" y="50" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="11" fontWeight="bold" fill="#065f46">
+                  Performance e Recuperação
                 </text>
-
-                <circle cx="315" cy="240" r="18" fill="#ffffff" stroke="#e5e7eb" strokeWidth="1" />
-                <text x="315" y="245" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="14" fill="#d97706">
-                  ★
+                <text x="250" y="65" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="10" fill="#047857">
+                  Aumento de Força
                 </text>
               </svg>
             </div>
