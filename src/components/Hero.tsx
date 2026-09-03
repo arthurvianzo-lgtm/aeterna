@@ -59,7 +59,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 pb-16 pt-6 lg:grid-cols-[45%_55%] lg:px-8 lg:pb-24 lg:pt-8">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 pb-16 pt-6 lg:grid-cols-[45%_55%] lg:px-8 lg:pb-24 lg:pt-8 lg:gap-16">
         <motion.div
           variants={container}
           initial="hidden"
@@ -133,26 +133,26 @@ export default function Hero() {
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             className="relative w-full"
           >
-            <div className="relative flex items-center justify-center gap-1.5 sm:gap-2">
+            <div className="relative flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-2">
               {/* Image 1 - Left/Top (Product) */}
               <img
                 src="/001.jpeg"
                 alt="Aeterna Creatina Product"
-                className="max-w-[110px] h-40 w-auto shrink rounded-2xl object-cover shadow-[0_10px_25px_rgba(0,0,0,0.1)] sm:max-w-[170px] sm:h-64 lg:max-w-[200px] lg:h-80"
+                className="min-w-0 h-48 w-full rounded-2xl object-cover shadow-[0_10px_25px_rgba(0,0,0,0.1)] sm:h-64 lg:h-80"
               />
 
               {/* Image 2 - Center (Model) - Overlapping with higher z-index */}
               <img
                 src="/002.jpeg"
                 alt="Aeterna Model"
-                className="max-w-[110px] h-40 w-auto shrink rounded-2xl object-cover shadow-[0_10px_25px_rgba(0,0,0,0.1)] relative z-10 translate-y-[25%] sm:max-w-[170px] sm:h-64 lg:max-w-[200px] lg:h-80"
+                className="min-w-0 h-48 w-full rounded-2xl object-cover shadow-[0_10px_25px_rgba(0,0,0,0.1)] relative z-10 sm:translate-y-[25%] sm:h-64 lg:h-80"
               />
 
               {/* Image 3 - Right/Top (Detail) */}
               <img
                 src="/003.jpeg"
                 alt="Aeterna Detail"
-                className="max-w-[110px] h-40 w-auto shrink rounded-2xl object-cover shadow-[0_10px_25px_rgba(0,0,0,0.1)] sm:max-w-[170px] sm:h-64 lg:max-w-[200px] lg:h-80"
+                className="min-w-0 h-48 w-full rounded-2xl object-cover shadow-[0_10px_25px_rgba(0,0,0,0.1)] sm:h-64 lg:h-80"
               />
             </div>
           </motion.div>
