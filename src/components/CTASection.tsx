@@ -3,6 +3,7 @@
 import { MessageCircle, ShieldCheck, BadgeCheck } from "lucide-react";
 import Reveal from "./Reveal";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
+import { OriginButton } from "@/components/ui/origin-button";
 
 export default function CTASection() {
   return (
@@ -22,15 +23,15 @@ export default function CTASection() {
             </p>
 
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <a
-                href={buildWhatsAppLink()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-bold text-emerald-700 shadow-xl shadow-emerald-950/20 transition-all duration-300 hover:scale-[1.04] active:scale-95 sm:w-auto"
+              <OriginButton
+                onClick={() =>
+                  window.open(buildWhatsAppLink(), "_blank", "noopener")
+                }
+                className="w-full gap-2 rounded-full bg-white px-8 text-base font-bold text-emerald-700 shadow-xl shadow-emerald-950/20 sm:w-auto"
               >
-                <MessageCircle className="h-5 w-5 text-emerald-600 transition-transform duration-300 group-hover:rotate-12" />
+                <MessageCircle className="h-5 w-5" />
                 Quero uma simulação gratuita
-              </a>
+              </OriginButton>
             </div>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-emerald-50/80">

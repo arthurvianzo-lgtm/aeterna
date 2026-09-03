@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
+import { OriginButton } from "@/components/ui/origin-button";
 
 const NAV_LINKS = [
   { label: "Pilares", href: "#pilares" },
@@ -56,15 +57,15 @@ export default function Header() {
         </ul>
 
         <div className="hidden md:block">
-          <a
-            href={buildWhatsAppLink()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-emerald-600/25 transition-all duration-300 hover:scale-[1.04] hover:bg-emerald-700 hover:shadow-emerald-600/40 active:scale-95"
+          <OriginButton
+            onClick={() =>
+              window.open(buildWhatsAppLink(), "_blank", "noopener")
+            }
+            className="gap-2 rounded-full bg-emerald-600 px-5 text-sm font-semibold text-white shadow-lg shadow-emerald-600/25 hover:bg-emerald-700 hover:shadow-emerald-600/40"
           >
-            <MessageCircle className="h-4 w-4 transition-transform duration-300 group-hover:rotate-12" />
+            <MessageCircle className="h-4 w-4" />
             Falar no WhatsApp
-          </a>
+          </OriginButton>
         </div>
 
         <button
@@ -94,16 +95,16 @@ export default function Header() {
               {link.label}
             </a>
           ))}
-          <a
-            href={buildWhatsAppLink()}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setOpen(false)}
-            className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-emerald-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-600/25"
+          <OriginButton
+            onClick={() => {
+              setOpen(false);
+              window.open(buildWhatsAppLink(), "_blank", "noopener");
+            }}
+            className="mt-2 w-full gap-2 rounded-full bg-emerald-600 text-sm font-semibold text-white shadow-lg shadow-emerald-600/25"
           >
             <MessageCircle className="h-4 w-4" />
             Falar no WhatsApp
-          </a>
+          </OriginButton>
         </div>
       </motion.div>
     </motion.header>

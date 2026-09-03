@@ -1,5 +1,8 @@
+"use client";
+
 import { AtSign, Mail, MessageCircle } from "lucide-react";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
+import { OriginButton } from "@/components/ui/origin-button";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -40,14 +43,14 @@ export default function Footer() {
               <h4 className="font-semibold text-slate-900">Contato</h4>
               <ul className="mt-4 space-y-4">
                 <li>
-                  <a
-                    href={buildWhatsAppLink()}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-slate-500 transition-colors hover:text-emerald-600"
+                  <OriginButton
+                    onClick={() =>
+                      window.open(buildWhatsAppLink(), "_blank", "noopener")
+                    }
+                    className="h-8 gap-2 rounded-full border-0 bg-transparent px-0 text-sm font-normal text-slate-500 hover:text-emerald-600"
                   >
                     <MessageCircle className="h-4 w-4" /> WhatsApp
-                  </a>
+                  </OriginButton>
                 </li>
                 <li>
                   <a

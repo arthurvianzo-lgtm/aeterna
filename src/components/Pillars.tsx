@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Palette, Factory, TrendingUp, HeartHandshake, ArrowUpRight } from "lucide-react";
 import Reveal from "./Reveal";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
+import { OriginButton } from "@/components/ui/origin-button";
 
 const PILLARS = [
   {
@@ -76,17 +77,21 @@ export default function Pillars() {
                 {pillar.title}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-slate-600">{pillar.desc}</p>
-              <a
-                href={buildWhatsAppLink(
-                  `Olá! Quero saber mais sobre: ${pillar.title}`
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-emerald-600 transition-all duration-300 hover:gap-2"
+              <OriginButton
+                onClick={() =>
+                  window.open(
+                    buildWhatsAppLink(
+                      `Olá! Quero saber mais sobre: ${pillar.title}`
+                    ),
+                    "_blank",
+                    "noopener"
+                  )
+                }
+                className="mt-5 w-full gap-1 rounded-full border border-emerald-200 bg-emerald-50 text-sm font-semibold text-emerald-700 hover:border-emerald-300 hover:bg-emerald-100"
               >
                 Saber mais
                 <ArrowUpRight className="h-4 w-4" />
-              </a>
+              </OriginButton>
             </motion.div>
           ))}
         </div>

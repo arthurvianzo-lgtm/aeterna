@@ -13,6 +13,7 @@ import {
   Truck,
 } from "lucide-react";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
+import { OriginButton } from "@/components/ui/origin-button";
 
 const container = {
   hidden: {},
@@ -72,16 +73,15 @@ export default function Hero() {
           </motion.p>
 
           <motion.div variants={item} className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href={buildWhatsAppLink()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-emerald-600 px-7 py-3.5 text-base font-semibold text-white shadow-xl shadow-emerald-600/30 transition-all duration-300 hover:scale-[1.04] hover:bg-emerald-700 active:scale-95"
+            <OriginButton
+              onClick={() =>
+                window.open(buildWhatsAppLink(), "_blank", "noopener")
+              }
+              className="gap-2 rounded-full bg-emerald-600 px-7 text-base font-semibold text-white shadow-xl shadow-emerald-600/30 hover:bg-emerald-700"
             >
-              <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
               <MessageCircle className="h-5 w-5" />
               Lançar Linha Própria
-            </a>
+            </OriginButton>
             <a
               href="#pilares"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300/80 bg-white/70 px-7 py-3.5 text-base font-semibold text-slate-800 backdrop-blur transition-all duration-300 hover:scale-[1.03] hover:border-slate-400 active:scale-95"

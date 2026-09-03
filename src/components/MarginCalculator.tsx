@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { X, Check, MessageCircle, TrendingUp } from "lucide-react";
 import Reveal from "./Reveal";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
+import { OriginButton } from "@/components/ui/origin-button";
 
 const TRADITIONAL_MARGIN = 0.25;
 const AETERNA_MARGIN = 1.0;
@@ -170,17 +171,21 @@ export default function MarginCalculator() {
                   </p>
                 </div>
               </div>
-              <a
-                href={buildWhatsAppLink(
-                  `Olá! Quero uma simulação completa de margem para minha academia. Meu faturamento mensal com suplementos é de aproximadamente ${fmt(monthlyRevenue)}.`
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-600/30 transition-all duration-300 hover:scale-[1.04] hover:bg-emerald-500 active:scale-95"
+              <OriginButton
+                onClick={() =>
+                  window.open(
+                    buildWhatsAppLink(
+                      `Olá! Quero uma simulação completa de margem para minha academia. Meu faturamento mensal com suplementos é de aproximadamente ${fmt(monthlyRevenue)}.`
+                    ),
+                    "_blank",
+                    "noopener"
+                  )
+                }
+                className="gap-2 rounded-full bg-emerald-600 text-sm font-semibold text-white shadow-lg shadow-emerald-600/30 hover:bg-emerald-500"
               >
                 <MessageCircle className="h-4 w-4" />
                 Simular com a Aeterna
-              </a>
+              </OriginButton>
             </motion.div>
           </div>
         </Reveal>

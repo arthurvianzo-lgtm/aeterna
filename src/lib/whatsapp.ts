@@ -1,4 +1,4 @@
-const WHATSAPP_PHONE = "5511999999999";
+const WHATSAPP_PHONE = "5521959183710";
 
 const WHATSAPP_DEFAULT_MESSAGE =
   "Olá! Quero lançar uma linha de suplementos de marca própria para a minha academia com a Aeterna.";

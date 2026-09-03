@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Handshake, Palette, Factory, PackageCheck } from "lucide-react";
 import Reveal from "./Reveal";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
+import { OriginButton } from "@/components/ui/origin-button";
 
 const STEPS = [
   {
@@ -87,14 +88,14 @@ export default function HowItWorks() {
         </div>
 
         <Reveal delay={0.2} className="mt-16 text-center">
-          <a
-            href={buildWhatsAppLink()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-slate-900/20 transition-all duration-300 hover:scale-[1.04] hover:bg-slate-800 active:scale-95"
+          <OriginButton
+            onClick={() =>
+              window.open(buildWhatsAppLink(), "_blank", "noopener")
+            }
+            className="min-w-52 gap-2 rounded-full bg-slate-900 text-base font-semibold text-white shadow-lg shadow-slate-900/20 hover:bg-slate-800"
           >
             Começar meu processo
-          </a>
+          </OriginButton>
         </Reveal>
       </div>
     </section>
