@@ -98,8 +98,9 @@ export default function ComparisonTable() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm"
+      className="overflow-x-auto rounded-2xl border border-slate-200/80 bg-white shadow-sm"
     >
+      <div className="min-w-[560px]">
       {/* Header */}
       <div className="grid grid-cols-[1.2fr_1fr_1fr] items-center border-b border-slate-200/80 bg-slate-50/70">
         <div className="px-5 py-4">
@@ -137,6 +138,7 @@ export default function ComparisonTable() {
           </div>
         </div>
       ))}
+      </div>
     </motion.div>
   );
 }
