@@ -4,7 +4,7 @@ import Pillars from "@/components/Pillars";
 import HowItWorks from "@/components/HowItWorks";
 import MarginCalculator from "@/components/MarginCalculator";
 import CTASection from "@/components/CTASection";
-import Footer from "@/components/Footer";
+import { Footerdemo } from "@/components/ui/footer-section";
 
 export default function Home() {
   return (
@@ -17,7 +17,7 @@ export default function Home() {
         <MarginCalculator />
         <CTASection />
       </main>
-      <Footer />
+      <Footerdemo />
     </div>
   );
 }
