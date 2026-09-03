@@ -155,23 +155,129 @@ export default function Hero() {
               </span>
             </div>
 
-            {/* Fake product bottle */}
+            {/* SVG Product Bottle */}
             <div className="mt-5 flex items-center justify-center">
-              <div className="relative flex flex-col items-center">
-                <div className="h-36 w-24 rounded-b-[2rem] rounded-t-lg bg-gradient-to-b from-slate-800 to-slate-900">
-                  <div className="mx-auto mt-4 h-3 w-3 rounded-full bg-emerald-400/80" />
-                  <p className="mt-6 px-2 text-center text-xs font-bold uppercase leading-tight text-white">
-                    Aeterna
-                  </p>
-                  <p className="mt-1 px-2 text-center text-[10px] text-slate-300">
-                    Whey Protein
-                  </p>
-                </div>
-                <div className="-mt-0.5 h-4 w-10 rounded-full bg-slate-300/80" />
-                <p className="mt-2 rounded-full bg-slate-100 px-3 py-0.5 text-[10px] font-medium text-slate-500">
-                  Whey Protein · 900g
-                </p>
-              </div>
+              <svg
+                viewBox="0 0 400 500"
+                className="h-72 w-auto"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                {/* Background glow */}
+                <defs>
+                  <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#10b981" stopOpacity="0.15" />
+                    <stop offset="100%" stopColor="#10b981" stopOpacity="0" />
+                  </radialGradient>
+                  <linearGradient id="bottleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#065f46" />
+                    <stop offset="50%" stopColor="#059669" />
+                    <stop offset="100%" stopColor="#065f46" />
+                  </linearGradient>
+                  <linearGradient id="capGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#b45309" />
+                    <stop offset="50%" stopColor="#d97706" />
+                    <stop offset="100%" stopColor="#b45309" />
+                  </linearGradient>
+                  <linearGradient id="labelGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#ffffff" stopOpacity="0.95" />
+                    <stop offset="100%" stopColor="#f0fdf4" stopOpacity="0.9" />
+                  </linearGradient>
+                </defs>
+
+                {/* Glow effect */}
+                <circle cx="200" cy="250" r="180" fill="url(#glow)" />
+
+                {/* Bottle shadow */}
+                <ellipse cx="200" cy="470" rx="70" ry="12" fill="#000000" opacity="0.1" />
+
+                {/* Bottle body */}
+                <path
+                  d="M140 120 L140 400 Q140 440 200 440 Q260 440 260 400 L260 120 Z"
+                  fill="url(#bottleGradient)"
+                  stroke="#047857"
+                  strokeWidth="2"
+                />
+
+                {/* Bottle neck */}
+                <rect x="155" y="80" width="90" height="45" fill="url(#bottleGradient)" stroke="#047857" strokeWidth="2" />
+
+                {/* Cap */}
+                <path
+                  d="M150 60 L150 80 Q150 85 155 85 L245 85 Q250 85 250 80 L250 60 Q250 50 200 50 Q150 50 150 60"
+                  fill="url(#capGradient)"
+                  stroke="#92400e"
+                  strokeWidth="2"
+                />
+
+                {/* Label background */}
+                <rect x="155" y="160" width="90" height="120" rx="8" fill="url(#labelGradient)" stroke="#d1fae5" strokeWidth="1" />
+
+                {/* Label text - Brand */}
+                <text x="200" y="195" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="18" fontWeight="bold" fill="#065f46">
+                  AETERNA
+                </text>
+
+                {/* Label text - Product */}
+                <text x="200" y="220" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="12" fontWeight="600" fill="#047857">
+                  Creatina
+                </text>
+
+                {/* Label text - Flavor */}
+                <text x="200" y="245" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="10" fill="#6b7280">
+                  Morango Cristalino
+                </text>
+
+                {/* Label decorative line */}
+                <line x1="165" y1="255" x2="235" y2="255" stroke="#10b981" strokeWidth="2" />
+
+                {/* Label weight */}
+                <text x="200" y="275" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="11" fontWeight="bold" fill="#374151">
+                  300g
+                </text>
+
+                {/* Badge: 100% REGULADO */}
+                <g transform="translate(60, 140)">
+                  <rect x="0" y="0" width="75" height="24" rx="12" fill="#ecfdf5" stroke="#10b981" strokeWidth="1.5" />
+                  <text x="37.5" y="16" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="9" fontWeight="bold" fill="#047857">
+                    100% REGULADO
+                  </text>
+                </g>
+
+                {/* Badge: ZERO TRABALHO */}
+                <g transform="translate(265, 180)">
+                  <rect x="0" y="0" width="70" height="24" rx="12" fill="#fef3c7" stroke="#d97706" strokeWidth="1.5" />
+                  <text x="35" y="16" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="9" fontWeight="bold" fill="#92400e">
+                    ZERO TRABALHO
+                  </text>
+                </g>
+
+                {/* Badge: +100% MARGEM */}
+                <g transform="translate(50, 320)">
+                  <rect x="0" y="0" width="80" height="24" rx="12" fill="#ecfdf5" stroke="#10b981" strokeWidth="1.5" />
+                  <text x="40" y="16" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="9" fontWeight="bold" fill="#047857">
+                    +100% MARGEM
+                  </text>
+                </g>
+
+                {/* Badge: Turnkey */}
+                <g transform="translate(270, 300)">
+                  <rect x="0" y="0" width="60" height="24" rx="12" fill="#f0fdf4" stroke="#059669" strokeWidth="1.5" />
+                  <text x="30" y="16" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="9" fontWeight="bold" fill="#065f46">
+                    Turnkey
+                  </text>
+                </g>
+
+                {/* Small icon badges */}
+                <circle cx="85" cy="250" r="18" fill="#ffffff" stroke="#e5e7eb" strokeWidth="1" />
+                <text x="85" y="255" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="14" fill="#10b981">
+                  ✓
+                </text>
+
+                <circle cx="315" cy="240" r="18" fill="#ffffff" stroke="#e5e7eb" strokeWidth="1" />
+                <text x="315" y="245" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="14" fill="#d97706">
+                  ★
+                </text>
+              </svg>
             </div>
 
             <div className="mt-5 grid grid-cols-2 gap-3">
