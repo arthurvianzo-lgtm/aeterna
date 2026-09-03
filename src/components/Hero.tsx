@@ -136,7 +136,7 @@ export default function Hero() {
             <img
               src="/001.jpeg"
               alt="Aeterna Creatina Product"
-              className="h-auto w-full rounded-3xl object-cover shadow-2xl"
+              className="h-[450px] w-auto rounded-3xl object-cover shadow-2xl"
             />
           </motion.div>
         </motion.div>
