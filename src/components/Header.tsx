@@ -34,9 +34,9 @@ export default function Header() {
           : "border-b border-transparent bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
+      <nav className="mx-auto flex h-12 max-w-7xl items-center justify-between px-6 lg:px-8">
         <a href="#" className="flex items-center">
-          <span className="text-xl font-black tracking-tight text-slate-900">
+          <span className="text-lg font-black tracking-tight text-slate-900">
             Aeterna
             <span className="text-emerald-600">.</span>
           </span>
@@ -61,9 +61,9 @@ export default function Header() {
             onClick={() =>
               window.open(buildWhatsAppLink(), "_blank", "noopener")
             }
-            className="gap-2 rounded-full bg-emerald-600 px-5 text-sm font-semibold text-white shadow-lg shadow-emerald-600/25 hover:bg-emerald-700 hover:shadow-emerald-600/40"
+            className="h-8 gap-2 rounded-full bg-emerald-600 px-4 text-xs font-semibold text-white shadow-lg shadow-emerald-600/25 hover:bg-emerald-700 hover:shadow-emerald-600/40"
           >
-            <MessageCircle className="h-4 w-4" />
+            <MessageCircle className="h-3.5 w-3.5" />
             Falar no WhatsApp
           </OriginButton>
         </div>

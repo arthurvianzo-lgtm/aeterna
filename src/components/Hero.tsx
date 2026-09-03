@@ -35,7 +35,7 @@ const mockupItems = [
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-slate-50 pt-16">
+    <section className="relative overflow-hidden bg-slate-50 pt-14">
       {/* Sophisticated background: radial glow + subtle grid */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div
@@ -59,23 +59,16 @@ export default function Hero() {
         />
       </div>
 
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 pb-20 pt-20 lg:grid-cols-2 lg:px-8 lg:pb-28 lg:pt-28">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 pb-16 pt-6 lg:grid-cols-2 lg:px-8 lg:pb-24 lg:pt-8">
         <motion.div
           variants={container}
           initial="hidden"
           animate="visible"
           className="max-w-xl"
         >
-          <motion.div variants={item}>
-            <span className="inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-white/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-slate-600 backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
-              Solução Turnkey em Suplementação
-            </span>
-          </motion.div>
-
           <motion.h1
             variants={item}
-            className="mt-6 text-4xl font-bold leading-[1.12] tracking-tight text-slate-900 sm:text-5xl lg:text-[3.5rem]"
+            className="text-4xl font-bold leading-[1.12] tracking-tight text-slate-900 sm:text-5xl lg:text-[3.5rem]"
           >
             Transforme a marca da sua academia em uma{" "}
             <span className="text-gradient bg-gradient-to-r from-emerald-600 to-emerald-500">

@@ -34,10 +34,7 @@ export default function Pillars() {
     <section id="pilares" className="bg-white py-24 sm:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-slate-600">
-            Por que a Aeterna
-          </span>
-          <h2 className="mt-5 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
             Os 4 pilares de uma{" "}
             <span className="text-gradient bg-gradient-to-r from-emerald-600 to-emerald-500">
               linha própria vencedora

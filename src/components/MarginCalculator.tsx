@@ -23,10 +23,7 @@ export default function MarginCalculator() {
     <section id="margem" className="relative overflow-hidden bg-white py-24 sm:py-28">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-slate-600">
-            Calculadora de margem
-          </span>
-          <h2 className="mt-5 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
             Veja a diferença na{" "}
             <span className="text-gradient bg-gradient-to-r from-emerald-600 to-emerald-500">
               sua margem
