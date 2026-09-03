@@ -59,12 +59,12 @@ export default function Hero() {
         />
       </div>
 
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 pb-16 pt-6 lg:grid-cols-2 lg:px-8 lg:pb-24 lg:pt-8">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 pb-16 pt-6 lg:grid-cols-[45%_55%] lg:px-8 lg:pb-24 lg:pt-8">
         <motion.div
           variants={container}
           initial="hidden"
           animate="visible"
-          className="max-w-xl"
+          className="max-w-full"
         >
           <motion.h1
             variants={item}
@@ -121,33 +121,40 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Product Images */}
+        {/* Product Images - Mosaic Composition */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="relative"
+          className="relative flex items-center justify-center"
         >
           <motion.div
             animate={{ y: [0, -12, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="relative flex items-center justify-center gap-4"
+            className="relative w-full"
           >
-            <img
-              src="/001.jpeg"
-              alt="Aeterna Creatina Product 1"
-              className="h-[450px] w-auto rounded-3xl object-cover shadow-2xl"
-            />
-            <img
-              src="/002.jpeg"
-              alt="Aeterna Creatina Product 2"
-              className="h-[450px] w-auto rounded-3xl object-cover shadow-2xl"
-            />
-            <img
-              src="/003.jpeg"
-              alt="Aeterna Creatina Product 3"
-              className="h-[450px] w-auto rounded-3xl object-cover shadow-2xl"
-            />
+            <div className="relative flex items-center justify-center gap-2">
+              {/* Image 1 - Left/Top (Product) */}
+              <img
+                src="/001.jpeg"
+                alt="Aeterna Creatina Product"
+                className="max-w-[200px] h-[320px] w-auto rounded-2xl object-cover shadow-[0_10px_25px_rgba(0,0,0,0.1)]"
+              />
+
+              {/* Image 2 - Center (Model) - Overlapping with higher z-index */}
+              <img
+                src="/002.jpeg"
+                alt="Aeterna Model"
+                className="max-w-[200px] h-[320px] w-auto rounded-2xl object-cover shadow-[0_10px_25px_rgba(0,0,0,0.1)] relative z-10 translate-y-[25%]"
+              />
+
+              {/* Image 3 - Right/Top (Detail) */}
+              <img
+                src="/003.jpeg"
+                alt="Aeterna Detail"
+                className="max-w-[200px] h-[320px] w-auto rounded-2xl object-cover shadow-[0_10px_25px_rgba(0,0,0,0.1)]"
+              />
+            </div>
           </motion.div>
         </motion.div>
       </div>
