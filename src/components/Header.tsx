@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
@@ -35,11 +36,15 @@ export default function Header() {
       }`}
     >
       <nav className="mx-auto flex h-12 max-w-7xl items-center justify-between px-6 lg:px-8">
-        <a href="#" className="flex items-center">
-          <span className="text-lg font-black tracking-tight text-slate-900">
-            Aeterna
-            <span className="text-emerald-600">.</span>
-          </span>
+        <a href="#" className="flex items-center" aria-label="Aeterna">
+          <Image
+            src="/logo.svg"
+            alt="Aeterna"
+            width={36}
+            height={36}
+            priority
+            className="h-9 w-auto object-contain"
+          />
         </a>
 
         <ul className="hidden items-center gap-8 md:flex">
