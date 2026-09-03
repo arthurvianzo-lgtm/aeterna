@@ -1,8 +1,11 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import SocialProof from "@/components/SocialProof";
+import Metrics from "@/components/Metrics";
 import Pillars from "@/components/Pillars";
 import HowItWorks from "@/components/HowItWorks";
 import MarginCalculator from "@/components/MarginCalculator";
+import FAQ from "@/components/FAQ";
 import CTASection from "@/components/CTASection";
 import { Footerdemo } from "@/components/ui/footer-section";
 
@@ -12,9 +15,12 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
+        <SocialProof />
+        <Metrics />
         <Pillars />
         <HowItWorks />
         <MarginCalculator />
+        <FAQ />
         <CTASection />
       </main>
       <Footerdemo />

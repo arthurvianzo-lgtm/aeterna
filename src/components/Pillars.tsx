@@ -9,31 +9,23 @@ import { OriginButton } from "@/components/ui/origin-button";
 const PILLARS = [
   {
     icon: Palette,
-    title: "Design & Identidade Visual Sob Medida",
-    desc: "Rótulos, cores e identidade construídos para representar a força da sua marca, do conceito ao produto final.",
-    accent: "from-fuchsia-500 to-purple-600",
-    bg: "bg-fuchsia-50 text-fuchsia-600",
+    title: "Design & Identidade",
+    desc: "Rótulos e identidade construídos para a força da sua marca, do conceito ao produto final.",
   },
   {
     icon: Factory,
-    title: "Processo 100% Industrial & Regulamentado",
-    desc: "Fabricação em escala com registro e conformidade total. Você nunca lida com burocracia, fiscalização ou fornecedores.",
-    accent: "from-emerald-500 to-teal-600",
-    bg: "bg-emerald-50 text-emerald-600",
+    title: "Produção Industrial",
+    desc: "Fabricação em escala com registro e conformidade total. Burocracia? Fica com a gente.",
   },
   {
     icon: TrendingUp,
-    title: "Margem de Lucro Sem Intermediários",
-    desc: "Compre direto da indústria e precifique como quiser. Sem distribuidores, a margem fica na sua mão.",
-    accent: "from-indigo-500 to-blue-600",
-    bg: "bg-indigo-50 text-indigo-600",
+    title: "Margem sem Intermediários",
+    desc: "Compre direto da indústria e precifique como quiser. A margem fica na sua mão.",
   },
   {
     icon: HeartHandshake,
-    title: "Retenção e Valor de Marca para os Alunos",
-    desc: "Uma linha própria aumenta a autoridade da academia e fideliza alunos que se tornam embaixadores da sua marca.",
-    accent: "from-amber-500 to-orange-600",
-    bg: "bg-amber-50 text-amber-600",
+    title: "Retenção de Alunos",
+    desc: "Uma linha própria eleva a autoridade da academia e transforma alunos em embaixadores.",
   },
 ];
 
@@ -42,9 +34,12 @@ export default function Pillars() {
     <section id="pilares" className="bg-white py-24 sm:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
+          <span className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-slate-600">
+            Por que a Aeterna
+          </span>
+          <h2 className="mt-5 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
             Os 4 pilares de uma{" "}
-            <span className="text-gradient bg-gradient-to-r from-emerald-600 to-teal-500">
+            <span className="text-gradient bg-gradient-to-r from-emerald-600 to-emerald-500">
               linha própria vencedora
             </span>
           </h2>
@@ -58,25 +53,22 @@ export default function Pillars() {
           {PILLARS.map((pillar, i) => (
             <motion.div
               key={pillar.title}
-              initial={{ opacity: 0, y: 28 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.55, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              whileHover={{ y: -8 }}
-              className="group relative overflow-hidden rounded-3xl border border-slate-200/80 bg-slate-50/60 p-7 shadow-sm backdrop-blur transition-shadow duration-300 hover:shadow-xl hover:shadow-slate-200/60"
+              transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -6 }}
+              className="group relative flex flex-col rounded-2xl border border-slate-200/80 bg-slate-50/50 p-7 transition-shadow duration-300 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-200/50"
             >
-              <div
-                className={`pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-to-br ${pillar.accent} opacity-10 blur-2xl transition-opacity duration-300 group-hover:opacity-20`}
-              />
-              <span
-                className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl ${pillar.bg} transition-transform duration-300 group-hover:scale-110`}
-              >
-                <pillar.icon className="h-6 w-6" />
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white text-slate-600 ring-1 ring-slate-200 transition-colors duration-300 group-hover:text-emerald-600 group-hover:ring-emerald-200">
+                <pillar.icon className="h-5 w-5" />
               </span>
-              <h3 className="mt-5 text-lg font-bold leading-snug text-slate-900">
+              <h3 className="mt-5 text-lg font-semibold leading-snug text-slate-900">
                 {pillar.title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-600">{pillar.desc}</p>
+              <p className="mt-2.5 flex-1 text-sm leading-relaxed text-slate-600">
+                {pillar.desc}
+              </p>
               <OriginButton
                 onClick={() =>
                   window.open(
@@ -87,7 +79,7 @@ export default function Pillars() {
                     "noopener"
                   )
                 }
-                className="mt-5 w-full gap-1 rounded-full border border-emerald-200 bg-emerald-50 text-sm font-semibold text-emerald-700 hover:border-emerald-300 hover:bg-emerald-100"
+                className="mt-5 w-full gap-1 rounded-full border border-slate-200 bg-white text-sm font-medium text-slate-700 hover:border-emerald-300 hover:text-emerald-700"
               >
                 Saber mais
                 <ArrowUpRight className="h-4 w-4" />
