@@ -158,13 +158,13 @@ export default function Hero() {
             {/* SVG Product Display */}
             <div className="mt-5 flex items-center justify-center">
               <svg
-                viewBox="0 0 600 500"
+                viewBox="0 0 500 450"
                 className="h-72 w-auto"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <defs>
                   {/* Gold gradient for display */}
-                  <linearGradient id="goldBase" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#fbbf24" />
                     <stop offset="50%" stopColor="#f59e0b" />
                     <stop offset="100%" stopColor="#d97706" />
@@ -185,13 +185,6 @@ export default function Hero() {
                     <stop offset="100%" stopColor="#b45309" />
                   </linearGradient>
 
-                  {/* Pink gummies gradient */}
-                  <linearGradient id="gummiesPink" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#f472b6" />
-                    <stop offset="50%" stopColor="#ec4899" />
-                    <stop offset="100%" stopColor="#db2777" />
-                  </linearGradient>
-
                   {/* Label gradient */}
                   <linearGradient id="labelWhite" x1="0%" y1="0%" x2="0%" y2="100%">
                     <stop offset="0%" stopColor="#ffffff" />
@@ -202,65 +195,31 @@ export default function Hero() {
                   <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
                     <feDropShadow dx="0" dy="4" stdDeviation="8" floodOpacity="0.15" />
                   </filter>
-
-                  {/* Glass effect */}
-                  <linearGradient id="glassEffect" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="#ffffff" stopOpacity="0.3" />
-                    <stop offset="100%" stopColor="#ffffff" stopOpacity="0.05" />
-                  </linearGradient>
                 </defs>
 
-                {/* Background decorative geometric structures */}
-                <g opacity="0.15">
-                  <rect x="50" y="50" width="80" height="200" fill="#94a3b8" transform="rotate(-15 90 150)" />
-                  <rect x="480" y="80" width="60" height="150" fill="#94a3b8" transform="rotate(20 510 155)" />
-                  <circle cx="100" cy="400" r="40" fill="#e2e8f0" />
-                  <circle cx="520" cy="350" r="30" fill="#e2e8f0" />
-                </g>
-
-                {/* Decorative bar charts */}
-                <g transform="translate(40, 280)">
-                  <rect x="0" y="40" width="15" height="60" fill="#10b981" opacity="0.4" rx="2" />
-                  <rect x="20" y="20" width="15" height="80" fill="#f59e0b" opacity="0.4" rx="2" />
-                  <rect x="40" y="30" width="15" height="70" fill="#10b981" opacity="0.4" rx="2" />
-                </g>
-
-                <g transform="translate(520, 250)">
-                  <rect x="0" y="30" width="12" height="50" fill="#f59e0b" opacity="0.4" rx="2" />
-                  <rect x="16" y="10" width="12" height="70" fill="#10b981" opacity="0.4" rx="2" />
-                  <rect x="32" y="25" width="12" height="55" fill="#f59e0b" opacity="0.4" rx="2" />
-                </g>
-
-                {/* Staggered display platform */}
-                {/* Back level */}
-                <path d="M100 350 L300 390 L500 350 L500 360 L300 400 L100 360 Z" fill="url(#goldBase)" opacity="0.8" />
-                {/* Middle level */}
-                <path d="M120 370 L300 405 L480 370 L480 380 L300 415 L120 380 Z" fill="url(#goldBase)" opacity="0.9" />
-                {/* Front transparent platform */}
-                <path d="M80 390 L300 430 L520 390 L520 400 L300 440 L80 400 Z" fill="url(#glassEffect)" stroke="#d1d5db" strokeWidth="1" />
+                {/* Display platform */}
+                <path
+                  d="M50 380 L250 420 L450 380 L450 390 L250 430 L50 390 Z"
+                  fill="url(#goldGradient)"
+                  opacity="0.9"
+                />
+                <rect x="50" y="370" width="400" height="15" fill="#fef3c7" stroke="#f59e0b" strokeWidth="1" />
 
                 {/* Background bottles (smaller, behind) */}
-                <g transform="translate(130, 180) scale(0.75)">
-                  <path d="M30 40 L30 160 Q30 190 60 190 Q90 190 90 160 L90 40 Z" fill="url(#bottleGreen)" opacity="0.6" />
-                  <rect x="40" y="25" width="40" height="20" fill="url(#bottleGreen)" opacity="0.6" />
-                  <path d="M35 10 L35 25 Q35 28 40 28 L80 28 Q85 28 85 25 L85 10 Q85 5 60 5 Q35 5 35 10" fill="url(#capGold)" opacity="0.6" />
+                <g transform="translate(80, 200) scale(0.85)">
+                  <path d="M30 40 L30 160 Q30 190 60 190 Q90 190 90 160 L90 40 Z" fill="url(#bottleGreen)" opacity="0.7" />
+                  <rect x="40" y="25" width="40" height="20" fill="url(#bottleGreen)" opacity="0.7" />
+                  <path d="M35 10 L35 25 Q35 28 40 28 L80 28 Q85 28 85 25 L85 10 Q85 5 60 5 Q35 5 35 10" fill="url(#capGold)" opacity="0.7" />
                 </g>
 
-                <g transform="translate(380, 170) scale(0.8)">
-                  <path d="M30 40 L30 160 Q30 190 60 190 Q90 190 90 160 L90 40 Z" fill="url(#bottleGreen)" opacity="0.6" />
-                  <rect x="40" y="25" width="40" height="20" fill="url(#bottleGreen)" opacity="0.6" />
-                  <path d="M35 10 L35 25 Q35 28 40 28 L80 28 Q85 28 85 25 L85 10 Q85 5 60 5 Q35 5 35 10" fill="url(#capGold)" opacity="0.6" />
-                </g>
-
-                {/* Left side bottle */}
-                <g transform="translate(70, 200) scale(0.85)">
-                  <path d="M30 40 L30 160 Q30 190 60 190 Q90 190 90 160 L90 40 Z" fill="url(#bottleGreen)" opacity="0.8" />
-                  <rect x="40" y="25" width="40" height="20" fill="url(#bottleGreen)" opacity="0.8" />
-                  <path d="M35 10 L35 25 Q35 28 40 28 L80 28 Q85 28 85 25 L85 10 Q85 5 60 5 Q35 5 35 10" fill="url(#capGold)" opacity="0.8" />
+                <g transform="translate(320, 200) scale(0.85)">
+                  <path d="M30 40 L30 160 Q30 190 60 190 Q90 190 90 160 L90 40 Z" fill="url(#bottleGreen)" opacity="0.7" />
+                  <rect x="40" y="25" width="40" height="20" fill="url(#bottleGreen)" opacity="0.7" />
+                  <path d="M35 10 L35 25 Q35 28 40 28 L80 28 Q85 28 85 25 L85 10 Q85 5 60 5 Q35 5 35 10" fill="url(#capGold)" opacity="0.7" />
                 </g>
 
                 {/* Main front bottle */}
-                <g transform="translate(220, 130)" filter="url(#shadow)">
+                <g transform="translate(175, 150)" filter="url(#shadow)">
                   {/* Bottle body */}
                   <path
                     d="M25 50 L25 200 Q25 240 75 240 Q125 240 125 200 L125 50 Z"
@@ -268,12 +227,6 @@ export default function Hero() {
                     stroke="#047857"
                     strokeWidth="2"
                   />
-
-                  {/* Pink gummies content (visible through bottle) */}
-                  <ellipse cx="75" cy="180" rx="35" ry="25" fill="url(#gummiesPink)" opacity="0.7" />
-                  <ellipse cx="60" cy="160" rx="12" ry="8" fill="url(#gummiesPink)" opacity="0.6" />
-                  <ellipse cx="90" cy="165" rx="10" ry="7" fill="url(#gummiesPink)" opacity="0.6" />
-                  <ellipse cx="75" cy="200" rx="15" ry="10" fill="url(#gummiesPink)" opacity="0.5" />
 
                   {/* Bottle neck */}
                   <rect x="45" y="30" width="60" height="25" fill="url(#bottleGreen)" stroke="#047857" strokeWidth="2" />
@@ -287,81 +240,70 @@ export default function Hero() {
                   />
 
                   {/* Label */}
-                  <rect x="30" y="70" width="90" height="110" rx="6" fill="url(#labelWhite)" stroke="#d1fae5" strokeWidth="1" />
+                  <rect x="35" y="80" width="80" height="100" rx="6" fill="url(#labelWhite)" stroke="#d1fae5" strokeWidth="1" />
 
                   {/* Label content */}
-                  <text x="75" y="88" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="13" fontWeight="bold" fill="#065f46">
+                  <text x="75" y="105" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="14" fontWeight="bold" fill="#065f46">
                     AETERNA
                   </text>
-                  <text x="75" y="102" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="8" fontWeight="600" fill="#047857">
-                    CREATINA AETERNA
+                  <text x="75" y="125" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="10" fontWeight="600" fill="#047857">
+                    CREATINA
                   </text>
-                  <text x="75" y="118" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="7" fill="#6b7280">
-                    Performance e Recuperação
+                  <text x="75" y="145" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="8" fill="#6b7280">
+                    Morango Cristalino
                   </text>
-                  <text x="75" y="130" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="7" fill="#6b7280">
-                    Aumento de Força
-                  </text>
-                  <line x1="40" y1="136" x2="110" y2="136" stroke="#10b981" strokeWidth="1" />
-                  <text x="75" y="148" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="7" fill="#374151">
-                    Sabor Morango Cristalino
-                  </text>
-                  <text x="75" y="160" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="6" fill="#9ca3af">
-                    SUPLEMENTO ALIMENTAR
-                  </text>
-                  <text x="75" y="170" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="6" fill="#9ca3af">
-                    EM PASTILHA DE GOMA
-                  </text>
-                  <text x="75" y="182" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="8" fontWeight="bold" fill="#374151">
-                    180g
-                  </text>
-                  <text x="75" y="194" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="7" fill="#6b7280">
-                    80 GUMMIES
+                  <line x1="45" y1="152" x2="105" y2="152" stroke="#10b981" strokeWidth="1.5" />
+                  <text x="75" y="168" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="9" fontWeight="bold" fill="#374151">
+                    60 Gummies
                   </text>
                 </g>
 
                 {/* Floating badges */}
-                {/* 100% REGULADO - ANVISA (circle) */}
-                <g transform="translate(30, 60)">
-                  <circle cx="45" cy="45" r="40" fill="#ffffff" stroke="#10b981" strokeWidth="2" opacity="0.95" />
-                  <text x="45" y="40" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="8" fontWeight="bold" fill="#047857">
-                    100%
+                {/* 100% REGULADO - ANVISA */}
+                <g transform="translate(20, 80)">
+                  <rect x="0" y="0" width="100" height="28" rx="14" fill="#ecfdf5" stroke="#10b981" strokeWidth="2" />
+                  <text x="50" y="18" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="9" fontWeight="bold" fill="#047857">
+                    100% REGULADO
                   </text>
-                  <text x="45" y="52" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="7" fontWeight="bold" fill="#047857">
-                    REGULADO
-                  </text>
-                  <text x="45" y="62" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="6" fill="#047857">
+                  <text x="50" y="38" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="7" fill="#047857">
                     ANVISA
                   </text>
                 </g>
 
-                {/* ZERO TRABALHO (white rounded rect) */}
-                <g transform="translate(460, 70)">
-                  <rect x="0" y="0" width="90" height="30" rx="15" fill="#ffffff" stroke="#d97706" strokeWidth="2" />
-                  <text x="45" y="19" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="9" fontWeight="bold" fill="#92400e">
+                {/* ZERO TRABALHO */}
+                <g transform="translate(380, 100)">
+                  <rect x="0" y="0" width="85" height="28" rx="14" fill="#fef3c7" stroke="#d97706" strokeWidth="2" />
+                  <text x="42.5" y="18" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="9" fontWeight="bold" fill="#92400e">
                     ZERO TRABALHO
                   </text>
                 </g>
 
-                {/* +100% MARGEM MÉDIA (white rounded rect) */}
-                <g transform="translate(40, 340)">
-                  <rect x="0" y="0" width="115" height="30" rx="15" fill="#ffffff" stroke="#10b981" strokeWidth="2" />
-                  <text x="57.5" y="19" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="9" fontWeight="bold" fill="#047857">
+                {/* +100% MARGEM MÉDIA */}
+                <g transform="translate(30, 320)">
+                  <rect x="0" y="0" width="110" height="28" rx="14" fill="#ecfdf5" stroke="#10b981" strokeWidth="2" />
+                  <text x="55" y="18" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="9" fontWeight="bold" fill="#047857">
                     +100% MARGEM MÉDIA
                   </text>
                 </g>
 
-                {/* Turnkey with truck icon */}
-                <g transform="translate(480, 310)">
-                  <circle cx="25" cy="25" r="22" fill="#f0fdf4" stroke="#059669" strokeWidth="2" />
-                  {/* Simple truck icon */}
-                  <path d="M15 20 L15 28 L35 28 L35 20 M15 20 L20 15 L30 15 L35 20" fill="none" stroke="#065f46" strokeWidth="2" />
-                  <circle cx="20" cy="28" r="3" fill="#065f46" />
-                  <circle cx="30" cy="28" r="3" fill="#065f46" />
-                  <text x="25" y="55" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="8" fontWeight="bold" fill="#065f46">
+                {/* Turnkey icon */}
+                <g transform="translate(390, 290)">
+                  <circle cx="20" cy="20" r="20" fill="#f0fdf4" stroke="#059669" strokeWidth="2" />
+                  <text x="20" y="24" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="10" fontWeight="bold" fill="#065f46">
+                    ✓
+                  </text>
+                  <text x="20" y="50" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="8" fontWeight="bold" fill="#065f46">
                     Turnkey
                   </text>
                 </g>
+
+                {/* Performance text */}
+                <text x="250" y="50" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="11" fontWeight="bold" fill="#065f46">
+                  Performance e Recuperação
+                </text>
+                <text x="250" y="65" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="10" fill="#047857">
+                  Aumento de Força
+                </text>
               </svg>
             </div>
 
