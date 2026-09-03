@@ -40,10 +40,10 @@ export default function Header() {
           <Image
             src="/logo.svg"
             alt="Aeterna"
-            width={36}
-            height={36}
+            width={140}
+            height={35}
             priority
-            className="h-9 w-auto object-contain"
+            className="h-8 w-auto object-contain"
           />
         </a>
 
