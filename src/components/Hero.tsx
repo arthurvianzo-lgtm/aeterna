@@ -121,7 +121,7 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Product Image */}
+        {/* Product Images */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -131,11 +131,21 @@ export default function Hero() {
           <motion.div
             animate={{ y: [0, -12, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="relative"
+            className="relative flex items-center justify-center gap-4"
           >
             <img
               src="/001.jpeg"
-              alt="Aeterna Creatina Product"
+              alt="Aeterna Creatina Product 1"
+              className="h-[450px] w-auto rounded-3xl object-cover shadow-2xl"
+            />
+            <img
+              src="/002.jpeg"
+              alt="Aeterna Creatina Product 2"
+              className="h-[450px] w-auto rounded-3xl object-cover shadow-2xl"
+            />
+            <img
+              src="/003.jpeg"
+              alt="Aeterna Creatina Product 3"
               className="h-[450px] w-auto rounded-3xl object-cover shadow-2xl"
             />
           </motion.div>
