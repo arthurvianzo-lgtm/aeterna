@@ -141,7 +141,7 @@ export default function MarginCalculator() {
                     "noopener"
                   )
                 }
-                className="min-w-48 gap-2 rounded-full bg-emerald-600 text-sm font-medium text-white shadow-lg shadow-emerald-600/25 hover:bg-emerald-500"
+                className="min-w-48 gap-2 rounded-full bg-emerald-600 text-sm font-medium text-white shadow-lg shadow-emerald-900/20 hover:bg-emerald-500 hover:shadow-emerald-900/30"
               >
                 <MessageCircle className="h-4 w-4" />
                 Simular com a Aeterna

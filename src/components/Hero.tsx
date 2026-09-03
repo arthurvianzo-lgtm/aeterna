@@ -93,7 +93,7 @@ export default function Hero() {
               onClick={() =>
                 window.open(buildWhatsAppLink(), "_blank", "noopener")
               }
-              className="gap-2 rounded-full bg-emerald-600 px-7 text-base font-medium text-white shadow-xl shadow-emerald-600/25 hover:bg-emerald-700"
+              className="gap-2 rounded-full bg-emerald-600 px-7 text-base font-medium text-white shadow-xl shadow-emerald-900/20 hover:bg-emerald-700 hover:shadow-emerald-900/30"
             >
               <MessageCircle className="h-5 w-5" />
               Lançar Linha Própria

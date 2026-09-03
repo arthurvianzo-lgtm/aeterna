@@ -66,7 +66,7 @@ export default function Header() {
             onClick={() =>
               window.open(buildWhatsAppLink(), "_blank", "noopener")
             }
-            className="h-8 gap-2 rounded-full bg-emerald-600 px-4 text-xs font-semibold text-white shadow-lg shadow-emerald-600/25 hover:bg-emerald-700 hover:shadow-emerald-600/40"
+            className="h-8 gap-2 rounded-full bg-emerald-600 px-4 text-xs font-semibold text-white shadow-lg shadow-emerald-900/20 hover:bg-emerald-700 hover:shadow-emerald-900/30"
           >
             <MessageCircle className="h-3.5 w-3.5" />
             Falar no WhatsApp
@@ -105,7 +105,7 @@ export default function Header() {
               setOpen(false);
               window.open(buildWhatsAppLink(), "_blank", "noopener");
             }}
-            className="mt-2 w-full gap-2 rounded-full bg-emerald-600 text-sm font-semibold text-white shadow-lg shadow-emerald-600/25"
+            className="mt-2 w-full gap-2 rounded-full bg-emerald-600 text-sm font-semibold text-white shadow-lg shadow-emerald-900/20"
           >
             <MessageCircle className="h-4 w-4" />
             Falar no WhatsApp
