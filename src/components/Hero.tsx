@@ -140,7 +140,7 @@ export default function Hero() {
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           >
             <img
-              src="/001.svg"
+              src="/hero-product.svg"
               alt="Aeterna Creatina Gummies Product Display"
               className="h-96 w-auto"
             />
