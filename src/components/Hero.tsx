@@ -98,13 +98,6 @@ export default function Hero() {
               <MessageCircle className="h-5 w-5" />
               Lançar Linha Própria
             </OriginButton>
-            <a
-              href="#prova-social"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300/70 bg-white/70 px-7 py-3.5 text-base font-medium text-slate-800 backdrop-blur transition-all duration-300 hover:border-slate-400 hover:bg-white active:scale-95"
-            >
-              <ArrowDown className="h-5 w-5 text-emerald-600" />
-              Conheça a solução
-            </a>
           </motion.div>
 
           <motion.div

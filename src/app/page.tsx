@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import SocialProof from "@/components/SocialProof";
 import Metrics from "@/components/Metrics";
 import Pillars from "@/components/Pillars";
 import HowItWorks from "@/components/HowItWorks";
@@ -15,7 +14,6 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
-        <SocialProof />
         <Metrics />
         <Pillars />
         <HowItWorks />
