@@ -30,8 +30,9 @@ export default function MarginCalculator() {
             </span>
           </h2>
           <p className="mt-4 text-lg text-slate-600">
-            Arraste para simular o quanto sua academia deixa de lucrar ao revender
-            marcas tradicionais.
+            Arraste para simular o quanto seu negócio deixa de lucrar ao revender
+            marcas tradicionais. Comprando direto da fábrica parceira via Aeterna,
+            a margem fica na sua mão.
           </p>
         </Reveal>
 
@@ -41,7 +42,7 @@ export default function MarginCalculator() {
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between">
                 <label htmlFor="revenue" className="text-sm font-medium text-slate-700">
-                  Faturamento mensal com suplementos
+                  Faturamento mensal da sua linha
                 </label>
                 <span className="text-sm font-semibold text-slate-900">
                   <AnimatedNumber value={monthlyRevenue} prefix="R$ " />
@@ -93,7 +94,7 @@ export default function MarginCalculator() {
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-emerald-600" />
                 <div className="flex items-center justify-between">
                   <h3 className="text-sm font-medium text-slate-900">
-                    Linha própria Aeterna
+                    Linha própria via Aeterna
                   </h3>
                   <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-bold text-emerald-700 ring-1 ring-emerald-200/70">
                     +100%
@@ -135,7 +136,7 @@ export default function MarginCalculator() {
                 onClick={() =>
                   window.open(
                     buildWhatsAppLink(
-                      `Olá! Quero uma simulação completa de margem para minha academia. Meu faturamento mensal com suplementos é de aproximadamente R$ ${monthlyRevenue}.`
+                      `Olá! Quero uma simulação completa de margem para minha marca. Meu faturamento mensal é de aproximadamente R$ ${monthlyRevenue}.`
                     ),
                     "_blank",
                     "noopener"

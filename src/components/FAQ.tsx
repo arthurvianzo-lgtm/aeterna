@@ -8,23 +8,27 @@ import Reveal from "./Reveal";
 const FAQS = [
   {
     q: "Como funciona a regularização com a ANVISA?",
-    a: "Todo o processo de registro e conformidade é conduzido pela Aeterna. Você não precisa lidar com documentação, fiscalização ou laboratório — entregamos o produto 100% regularizado e pronto para venda.",
+    a: "A fábrica parceira indicada pela Aeterna já opera regularizada e em conformidade com a ANVISA. Nossa curadoria garante que você acesse fornecedores prontos para produzir sua linha, sem lidar com burocracia.",
   },
   {
     q: "Qual o prazo para receber minha primeira entrega?",
-    a: "O fluxo completo — do alinhamento à primeira entrega — leva em média 90 dias. Esse prazo cobre o desenvolvimento do rótulo, o registro regulatório e a produção industrial.",
+    a: "Do alinhamento à primeira entrega, o fluxo completo leva em média 90 dias — match com a fábrica, especificação, produção e envio.",
   },
   {
     q: "Existe um pedido mínimo?",
-    a: "Sim, trabalhamos com um volume mínimo competitivo que viabiliza o modelo de fabricação industrial. No alinhamento inicial, definimos juntos a quantidade ideal para o porte da sua academia.",
+    a: "Sim. Cada fábrica parceira trabalha com um volume mínimo competitivo. No alinhamento inicial definimos juntos a quantidade ideal para o porte do seu negócio.",
   },
   {
     q: "Quem faz o design do meu rótulo?",
-    a: "Nossa equipe de design desenvolve a identidade visual, o rótulo e a embalagem sob medida para a sua marca. Você aprova cada etapa e recebe um produto com cara de grande laboratório.",
+    a: "Depende do escopo escolhido: a própria fábrica parceira ou nossos parceiros de branding desenvolvem a identidade sob medida para a sua marca. Você aprova cada etapa até o produto final.",
   },
   {
-    q: "Posso vender online ou só na academia?",
-    a: "Sim. A linha é sua, então você define os canais — balcão, app, loja virtual ou redes sociais. Você controla preço e distribuição sem intermediários.",
+    q: "Como a Aeterna escolhe as fábricas parceiras?",
+    a: "Auditamos capacidade de produção, licenças, prazos e histórico antes de qualquer indicação. Assim, você acessa fornecedores que já passaram pelo nosso crivo, sem garimpar por conta própria.",
+  },
+  {
+    q: "Posso vender online ou só na minha loja?",
+    a: "Sim. A linha é sua, então você define os canais — balcão, loja física, e-commerce ou redes sociais. Você controla preço e distribuição, sem intermediários.",
   },
 ];
 
@@ -42,7 +46,7 @@ export default function FAQ() {
             Dúvidas respondidas
           </h2>
           <p className="mt-4 text-lg text-slate-600">
-            Tudo o que os donos de academia costumam perguntar antes de lançar a
+            Tudo o que marcas e empreendedores costumam perguntar antes de lançar a
             própria linha.
           </p>
         </Reveal>

@@ -9,25 +9,25 @@ const metrics = [
     prefix: "+",
     suffix: "%",
     label: "de margem média",
-    desc: "Vs. ~20-30% na revenda tradicional.",
+    desc: "Comprando direto da fábrica parceira, sem intermediário.",
   },
   {
     value: 100,
     suffix: "%",
-    label: "regularizado ANVISA",
-    desc: "Registro e conformidade inclusos no processo.",
+    label: "fábricas regulares ANVISA",
+    desc: "Parceiras de produção já licenciadas e em conformidade.",
   },
   {
     value: 90,
     suffix: " dias",
     label: "para lançar",
-    desc: "Do alinhamento à primeira entrega.",
+    desc: "Do match com a fábrica à primeira entrega.",
   },
   {
     value: 120,
     prefix: "+",
-    label: "academias",
-    desc: "Já operam com linha própria Aeterna.",
+    label: "marcas conectadas",
+    desc: "Já lançam linha própria via a rede de fábricas Aeterna.",
   },
 ];
 

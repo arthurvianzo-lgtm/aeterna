@@ -63,8 +63,9 @@ function Footerdemo() {
               </span>
             </div>
             <p className="mt-3 mb-6 text-sm leading-relaxed text-slate-600">
-              Sua academia com uma linha própria de suplementos. Do design à
-              entrega, tudo pronta-entrega e regulamentado.
+              Sua marca conectada às melhores fábricas de suplementos,
+              cosméticos e peptídeos do Brasil. Curadoria, negociação e
+              acompanhamento do match à primeira entrega.
             </p>
             <form
               className="relative"
@@ -148,7 +149,7 @@ function Footerdemo() {
               </p>
             </address>
             <p className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-emerald-700">
-              <ShieldCheck className="h-4 w-4" /> Suplementos 100% regulamentados
+              <ShieldCheck className="h-4 w-4" /> Fábricas parceiras 100% regulamentadas
             </p>
           </div>
 
@@ -181,13 +182,13 @@ function Footerdemo() {
             </div>
             <a
               href={buildWhatsAppLink(
-                "Olá! Quero lançar uma linha própria de suplementos na minha academia."
+                "Olá! Quero conectar minha marca às melhores fábricas de suplementos, cosméticos ou peptídeos."
               )}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-600 transition-all hover:gap-2.5"
             >
-              Lançar minha linha
+              Conectar minha marca
               <ArrowUpRight className="h-4 w-4" />
             </a>
           </div>

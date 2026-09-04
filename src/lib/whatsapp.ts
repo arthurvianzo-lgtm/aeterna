@@ -1,7 +1,7 @@
 const WHATSAPP_PHONE = "5521959183710";
 
 const WHATSAPP_DEFAULT_MESSAGE =
-  "Olá! Quero lançar uma linha de suplementos de marca própria para a minha academia com a Aeterna.";
+  "Olá! Quero lançar uma linha própria com a Aeterna. Pode me conectar com as melhores fábricas parceiras?";
 
 export function buildWhatsAppLink(message = WHATSAPP_DEFAULT_MESSAGE) {
   const encoded = encodeURIComponent(message);

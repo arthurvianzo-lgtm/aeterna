@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aeterna · Suplementos Private Label para Academias",
+  title: "Aeterna · Conectamos marcas às melhores fábricas de suplementos, cosméticos e peptídeos",
   description:
-    "Transforme a marca da sua academia em uma linha exclusiva de suplementos. Design, regulação, fabricação industrial e entrega — tudo turnkey com a Aeterna.",
+    "Conectamos sua marca às melhores fábricas de suplementos, cosméticos e peptídeos do Brasil. Curadoria de fornecedores, negociação e acompanhamento de ponta a ponta.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

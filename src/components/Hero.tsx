@@ -28,9 +28,9 @@ const item = {
 
 const mockupItems = [
   { icon: Palette, title: "Rótulo Exclusivo", desc: "Identidade sob medida" },
-  { icon: ShieldCheck, title: "100% Regulado", desc: "Registro ANVISA incluso" },
-  { icon: Factory, title: "Produção Industrial", desc: "Fábrica própria" },
-  { icon: Truck, title: "Entrega Final", desc: "Até sua academia" },
+  { icon: ShieldCheck, title: "Fábrica Validada", desc: "Parceiro já licenciado" },
+  { icon: Factory, title: "Rede de Produção", desc: "Suplementos, cosméticos e peptídeos" },
+  { icon: Truck, title: "Entrega Final", desc: "Até o seu negócio" },
 ];
 
 export default function Hero() {
@@ -70,9 +70,9 @@ export default function Hero() {
             variants={item}
             className="text-4xl font-bold leading-[1.12] tracking-tight text-slate-900 sm:text-5xl lg:text-[3.5rem]"
           >
-            Transforme a marca da sua academia em uma{" "}
+            Conectamos sua marca às melhores{" "}
             <span className="text-gradient bg-gradient-to-r from-emerald-600 to-emerald-500">
-              linha exclusiva de suplementos
+              fábricas de suplementos, cosméticos e peptídeos
             </span>
           </motion.h1>
 
@@ -80,9 +80,9 @@ export default function Hero() {
             variants={item}
             className="mt-6 max-w-lg text-lg leading-relaxed text-slate-600"
           >
-            Design, regulação, fabricação industrial e entrega — tudo em um
-            só fornecedor, com margem alta e sem trabalho operacional para a
-            sua academia.
+            Sem garimpar fábrica, sem risco de fornecedor errado — a Aeterna já
+            validou os melhores parceiros de produção pra você. Curadoria,
+            negociação e acompanhamento de ponta a ponta.
           </motion.p>
 
           <motion.div
@@ -111,12 +111,12 @@ export default function Hero() {
             <span className="hidden h-4 w-px bg-slate-300 sm:block" />
             <span className="inline-flex items-center gap-2">
               <span className="text-base font-bold text-slate-900">100%</span>
-              regularizado ANVISA
+              fábricas regulares ANVISA
             </span>
             <span className="hidden h-4 w-px bg-slate-300 sm:block" />
             <span className="inline-flex items-center gap-2">
-              <span className="text-base font-bold text-slate-900">Turnkey</span>
-              da fábrica à entrega
+              <span className="text-base font-bold text-slate-900">Rede validada</span>
+              de parceiros de produção
             </span>
           </motion.div>
         </motion.div>

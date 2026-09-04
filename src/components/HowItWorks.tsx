@@ -11,25 +11,25 @@ const STEPS = [
     icon: Handshake,
     step: "01",
     title: "Alinhamento",
-    desc: "Entendemos seus objetivos, seu público e definimos o escopo da sua linha de suplementos.",
+    desc: "Entendemos sua necessidade, seu público e a categoria ideal para a sua linha.",
   },
   {
     icon: Palette,
     step: "02",
-    title: "Design Exclusivo",
-    desc: "Criamos a identidade visual, o rótulo e a embalagem que refletem a sua marca.",
+    title: "Match com a Fábrica",
+    desc: "Indicamos o parceiro certo da nossa rede para o seu projeto — já validado e em conformidade.",
   },
   {
     icon: Factory,
     step: "03",
-    title: "Produção",
-    desc: "Fabricação industrial em escala, com registro, qualidade e conformidade regulatória.",
+    title: "Negociação e Especificação",
+    desc: "Intermediamos condições, volumes e escopo direto com a fábrica parceira.",
   },
   {
     icon: PackageCheck,
     step: "04",
-    title: "Entrega & Vendas",
-    desc: "Recebemos o estoque pronto na sua academia. É só vender e lucrar.",
+    title: "Produção e Entrega",
+    desc: "A fábrica produz sua linha enquanto a Aeterna acompanha tudo até a primeira entrega.",
   },
 ];
 
@@ -45,8 +45,8 @@ export default function HowItWorks() {
             </span>
           </h2>
           <p className="mt-4 text-lg text-slate-600">
-            Um processo turnkey, transparente e desenhado para tirar todo o trabalho
-            operacional das suas costas.
+            Um fluxo curado e transparente, desenhado para tirar das suas costas
+            o trabalho de garimpar fornecedores.
           </p>
         </Reveal>
 

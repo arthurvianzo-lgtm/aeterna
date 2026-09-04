@@ -29,19 +29,19 @@ const FEATURES: FeatureRow[] = [
     aeterna: true,
   },
   {
-    label: "Identidade da academia",
+    label: "Identidade da sua marca",
     traditional: false,
     aeterna: true,
   },
   {
-    label: "Fidelização de alunos",
+    label: "Fidelização de clientes",
     traditional: "Baixa",
     aeterna: "Alta",
   },
   {
-    label: "Histórico com fornecedores",
-    traditional: true,
-    aeterna: false,
+    label: "Acesso a fábricas validadas",
+    traditional: "Sem indicação",
+    aeterna: "Rede Aeterna",
   },
 ];
 
@@ -98,11 +98,10 @@ export default function ComparisonTable() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className="overflow-x-auto rounded-2xl border border-slate-200/80 bg-white shadow-sm"
+      className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm"
     >
-      <div className="min-w-[560px]">
-      {/* Header */}
-      <div className="grid grid-cols-[1.2fr_1fr_1fr] items-center border-b border-slate-200/80 bg-slate-50/70">
+      {/* Header (md and up) */}
+      <div className="hidden grid-cols-[1.2fr_1fr_1fr] items-center border-b border-slate-200/80 bg-slate-50/70 md:grid">
         <div className="px-5 py-4">
           <span className="text-sm font-medium text-slate-500">Característica</span>
         </div>
@@ -120,25 +119,45 @@ export default function ComparisonTable() {
       {FEATURES.map((f, i) => (
         <div
           key={f.label}
-          className={`grid grid-cols-[1.2fr_1fr_1fr] items-center border-b border-slate-100 transition-colors last:border-b-0 ${
+          className={`border-b border-slate-100 transition-colors last:border-b-0 ${
             i % 2 ? "bg-slate-50/40" : "bg-white"
           }`}
         >
-          <div className="px-5 py-3.5">
+          {/* Desktop layout */}
+          <div className="hidden items-center md:grid md:grid-cols-[1.2fr_1fr_1fr]">
+            <div className="px-5 py-3.5">
+              <p className="text-sm font-medium text-slate-800">{f.label}</p>
+              {f.description && (
+                <p className="mt-0.5 text-xs text-slate-400">{f.description}</p>
+              )}
+            </div>
+            <div className="border-l border-slate-100 px-5 py-3.5">
+              <StatusCell value={f.traditional} />
+            </div>
+            <div className="border-l border-emerald-100 bg-emerald-50/30 px-5 py-3.5">
+              <StatusCell value={f.aeterna} positive />
+            </div>
+          </div>
+
+          {/* Mobile layout */}
+          <div className="px-5 py-4 md:hidden">
             <p className="text-sm font-medium text-slate-800">{f.label}</p>
             {f.description && (
               <p className="mt-0.5 text-xs text-slate-400">{f.description}</p>
             )}
-          </div>
-          <div className="border-l border-slate-100 px-5 py-3.5">
-            <StatusCell value={f.traditional} />
-          </div>
-          <div className="border-l border-emerald-100 bg-emerald-50/30 px-5 py-3.5">
-            <StatusCell value={f.aeterna} positive />
+            <div className="mt-3 grid grid-cols-2 gap-3">
+              <div>
+                <p className="mb-1.5 text-xs font-medium text-slate-400">Revenda</p>
+                <StatusCell value={f.traditional} />
+              </div>
+              <div>
+                <p className="mb-1.5 text-xs font-medium text-emerald-600">Aeterna</p>
+                <StatusCell value={f.aeterna} positive />
+              </div>
+            </div>
           </div>
         </div>
       ))}
-      </div>
     </motion.div>
   );
 }

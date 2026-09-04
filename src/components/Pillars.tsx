@@ -9,23 +9,23 @@ import { OriginButton } from "@/components/ui/origin-button";
 const PILLARS = [
   {
     icon: Palette,
-    title: "Design & Identidade",
-    desc: "Rótulos e identidade construídos para a força da sua marca, do conceito ao produto final.",
+    title: "Rede de Fábricas Validadas",
+    desc: "Acesso a parceiros de produção auditados e testados, prontos para fabricar a sua linha.",
   },
   {
     icon: Factory,
-    title: "Produção Industrial",
-    desc: "Fabricação em escala com registro e conformidade total. Burocracia? Fica com a gente.",
+    title: "Curadoria por Categoria",
+    desc: "Suplementos, cosméticos e peptídeos — indicamos o parceiro certo para cada produto.",
   },
   {
     icon: TrendingUp,
-    title: "Margem sem Intermediários",
-    desc: "Compre direto da indústria e precifique como quiser. A margem fica na sua mão.",
+    title: "Negociação e Condições",
+    desc: "Usamos volume e relacionamento para conseguir condições melhores do que você sozinho.",
   },
   {
     icon: HeartHandshake,
-    title: "Retenção de Alunos",
-    desc: "Uma linha própria eleva a autoridade da academia e transforma alunos em embaixadores.",
+    title: "Suporte na Jornada",
+    desc: "Acompanhamos cada etapa, do match com a fábrica até a sua primeira entrega.",
   },
 ];
 
@@ -41,8 +41,8 @@ export default function Pillars() {
             </span>
           </h2>
           <p className="mt-4 text-lg text-slate-600">
-            Tudo pensado para transformar a sua academia em uma marca de suplementos
-            completa — sem abrir mão da qualidade e da sua identidade.
+            Tudo pensado para o seu negócio vender com marca própria — sem
+            garimpar fornecedor, sem abrir mão de qualidade e identidade.
           </p>
         </Reveal>
 

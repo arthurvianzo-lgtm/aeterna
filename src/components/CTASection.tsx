@@ -15,11 +15,11 @@ export default function CTASection() {
 
           <div className="relative mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-black leading-tight tracking-tight text-white sm:text-4xl">
-              Pronto para lançar a sua própria linha de suplementos?
+              Pronto para conectar sua marca às melhores fábricas?
             </h2>
             <p className="mt-4 text-lg text-emerald-50/90">
-              Simule seu projeto, tire dúvidas e receba uma proposta personalizada
-              direto no WhatsApp. Sem burocracia, sem compromisso.
+              Conte seu projeto, tire dúvidas e receba indicações de fábricas
+              parceiras direto no WhatsApp. Sem burocracia, sem compromisso.
             </p>
 
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -30,16 +30,16 @@ export default function CTASection() {
                 className="w-full gap-2 rounded-full bg-white px-8 text-base font-bold text-emerald-700 shadow-xl shadow-emerald-950/20 sm:w-auto"
               >
                 <MessageCircle className="h-5 w-5" />
-                Quero uma simulação gratuita
+                Quero conectar minha marca
               </OriginButton>
             </div>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-emerald-50/80">
               <span className="inline-flex items-center gap-1.5">
-                <ShieldCheck className="h-4 w-4" /> Totalmente regulamentado
+                <ShieldCheck className="h-4 w-4" /> Fábricas regulamentadas
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <BadgeCheck className="h-4 w-4" /> Atendimento exclusivo
+                <BadgeCheck className="h-4 w-4" /> Curadoria exclusiva
               </span>
             </div>
           </div>

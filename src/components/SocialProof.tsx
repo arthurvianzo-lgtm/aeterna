@@ -8,56 +8,56 @@ const testimonials = [
   {
     initials: "RM",
     name: "Ricardo Mendes",
-    gym: "Academia Iron Club",
+    gym: "Iron Club",
     quote:
-      "Em 90 dias lançamos nossa linha própria de whey. A margem dobra todos os meses e os alunos amam comprar da própria marca da academia.",
+      "Em 90 dias lançamos nossa linha própria de whey. A Aeterna encontrou a fábrica certa e a margem dobra todos os meses.",
     highlight: true,
   },
   {
     initials: "CS",
     name: "Camila Santos",
-    gym: "Studio Fit & Co",
+    gym: "Fit & Co",
     quote:
-      "Zero burocracia. A Aeterna cuidou do rótulo, da ANVISA e da produção. Eu só recebi o estoque pronto e coloquei à venda.",
+      "Zero burocracia. Fui indicada para uma fábrica da rede e recebi o estoque pronto, sem ter que garimpar fornecedor.",
   },
   {
     initials: "PL",
     name: "Paulo Lopes",
-    gym: "Academia Vitta",
+    gym: "Vitta",
     quote:
-      "O melhor de tudo é o controle de preço. Sem intermediários, consegui dobrar minha margem e ainda manter um preço justo.",
+      "O melhor de tudo é o controle de preço. Com acesso direto à fábrica, dobrei minha margem mantendo um preço justo.",
   },
   {
     initials: "AN",
     name: "Alana Nogueira",
     gym: "CrossFit Factory",
     quote:
-      "A retenção disparou. Os alunos que usam a linha própria viram embaixadores da marca — é outra dinâmica de comunidade.",
+      "Ter minha marca própria virou embaixadores do meu negócio — outra dinâmica de comunidade e fidelização.",
   },
   {
     initials: "JF",
     name: "João Ferreira",
-    gym: "Academia Performance",
+    gym: "Performance",
     quote:
-      "Atendimento premium do início ao fim. O design do meu rótulo ficou tão bom que parece marca de grande laboratório.",
+      "A curadoria da Aeterna fez toda a diferença. Fui à fábrica indicada e o produto final ficou impecável.",
   },
   {
     initials: "MT",
     name: "Marina Tavares",
-    gym: "Studio Pilates 360",
+    gym: "Studio 360",
     quote:
-      "Eu sempre quis ter uma linha própria, mas achava impossível pela burocracia. A Aeterna entregou tudo pronto, turnkey.",
+      "Eu sempre quis ter uma linha própria, mas achava impossível por não conhecer fornecedores. A Aeterna conectou tudo.",
     highlight: true,
   },
 ];
 
 const gymLogos = [
   "Iron Club",
-  "Studio Fit & Co",
-  "Academia Vitta",
+  "Fit & Co",
+  "Vitta",
   "CrossFit Factory",
   "Performance",
-  "Pilates 360",
+  "Studio 360",
   "PowerFit",
   "BodyLab",
 ];
@@ -78,14 +78,14 @@ export default function SocialProof() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            Academias que já lucram com{" "}
+            Marcas que já lucram conectadas à{" "}
             <span className="text-gradient bg-gradient-to-r from-emerald-600 to-emerald-500">
-              linha própria
+              nossa rede de fábricas
             </span>
           </h2>
           <p className="mt-4 text-lg text-slate-600">
-            De studios boutique a redes de academias, donos confiam na Aeterna
-            para transformar a marca em receita.
+            De pequenos negócios a marcas em crescimento, empreendedores confiam
+            na Aeterna para transformar marca própria em receita.
           </p>
         </Reveal>
 
@@ -129,7 +129,7 @@ export default function SocialProof() {
         {/* Logos marquee */}
         <Reveal delay={0.2} className="mt-16">
           <p className="text-center text-xs font-semibold uppercase tracking-widest text-slate-400">
-            Mais de 120 academias já lançaram sua linha
+            Mais de 120 marcas já lançaram sua linha via Aeterna
           </p>
           <div className="relative mt-8 overflow-hidden">
             <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-slate-50 to-transparent" />
