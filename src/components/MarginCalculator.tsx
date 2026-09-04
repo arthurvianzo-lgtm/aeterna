@@ -24,10 +24,10 @@ export default function MarginCalculator() {
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            Veja a diferença na{" "}
-            <span className="text-gradient bg-gradient-to-r from-emerald-600 to-emerald-500">
-              sua margem
-            </span>
+O tamanho da sua{" "}
+              <span className="text-gradient bg-gradient-to-r from-emerald-600 to-emerald-500">
+                margem, direto da fábrica
+              </span>
           </h2>
           <p className="mt-4 text-lg text-slate-600">
             Arraste para simular o quanto seu negócio deixa de lucrar ao revender
@@ -145,7 +145,7 @@ export default function MarginCalculator() {
                 className="min-w-48 gap-2 rounded-full bg-emerald-600 text-sm font-medium text-white shadow-lg shadow-emerald-900/20 hover:bg-emerald-500 hover:shadow-emerald-900/30"
               >
                 <MessageCircle className="h-4 w-4" />
-                Simular com a Aeterna
+                Ver quanto eu economizo
               </OriginButton>
             </div>
           </div>

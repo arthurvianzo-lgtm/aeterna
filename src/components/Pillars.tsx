@@ -11,21 +11,25 @@ const PILLARS = [
     icon: Palette,
     title: "Rede de Fábricas Validadas",
     desc: "Acesso a parceiros de produção auditados e testados, prontos para fabricar a sua linha.",
+    cta: "Ver fábricas da rede",
   },
   {
     icon: Factory,
     title: "Curadoria por Categoria",
     desc: "Suplementos, cosméticos e peptídeos — indicamos o parceiro certo para cada produto.",
+    cta: "Ver como funciona a curadoria",
   },
   {
     icon: TrendingUp,
     title: "Negociação e Condições",
     desc: "Usamos volume e relacionamento para conseguir condições melhores do que você sozinho.",
+    cta: "Ver como negociamos",
   },
   {
     icon: HeartHandshake,
     title: "Suporte na Jornada",
     desc: "Acompanhamos cada etapa, do match com a fábrica até a sua primeira entrega.",
+    cta: "Ver a jornada completa",
   },
 ];
 
@@ -35,10 +39,10 @@ export default function Pillars() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            Os 4 pilares de uma{" "}
-            <span className="text-gradient bg-gradient-to-r from-emerald-600 to-emerald-500">
-              linha própria vencedora
-            </span>
+O que você ganha com a{" "}
+              <span className="text-gradient bg-gradient-to-r from-emerald-600 to-emerald-500">
+                rede Aeterna
+              </span>
           </h2>
           <p className="mt-4 text-lg text-slate-600">
             Tudo pensado para o seu negócio vender com marca própria — sem
@@ -78,7 +82,7 @@ export default function Pillars() {
                 }
                 className="mt-5 w-full gap-1 rounded-full border border-slate-200 bg-white text-sm font-medium text-slate-700 hover:border-emerald-300 hover:text-emerald-700"
               >
-                Saber mais
+                {pillar.cta}
                 <ArrowUpRight className="h-4 w-4" />
               </OriginButton>
             </motion.div>

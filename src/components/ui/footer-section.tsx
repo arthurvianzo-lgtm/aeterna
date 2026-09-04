@@ -86,7 +86,7 @@ function Footerdemo() {
                 className="absolute right-1 top-1 h-8 w-8 rounded-full bg-emerald-600 text-white transition-transform hover:scale-105 hover:bg-emerald-700"
               >
                 <Send className="h-4 w-4" />
-                <span className="sr-only">Inscrever</span>
+                <span className="sr-only">Quero receber indicações de fábrica</span>
               </Button>
             </form>
             <p

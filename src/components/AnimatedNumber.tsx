@@ -8,7 +8,6 @@ interface AnimatedNumberProps {
   prefix?: string;
   suffix?: string;
   decimals?: number;
-  duration?: number;
   className?: string;
 }
 
@@ -17,7 +16,6 @@ export default function AnimatedNumber({
   prefix = "",
   suffix = "",
   decimals = 0,
-  duration = 1.4,
   className,
 }: AnimatedNumberProps) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -26,14 +24,7 @@ export default function AnimatedNumber({
     stiffness: 60,
     damping: 20,
     mass: 1,
-    duration,
   });
-
-  useEffect(() => {
-    if (inView) {
-      spring.set(value);
-    }
-  }, [inView, value, spring]);
 
   useEffect(() => {
     const format = (n: number) =>
@@ -42,18 +33,23 @@ export default function AnimatedNumber({
         maximumFractionDigits: decimals,
       })}${suffix}`;
 
-    const unsubscribe = spring.on("change", (latest) => {
+    const update = (n: number) => {
       if (ref.current) {
-        ref.current.textContent = format(latest);
+        ref.current.textContent = format(n);
       }
-    });
+    };
 
-    if (ref.current) {
-      ref.current.textContent = format(0);
-    }
+    update(spring.get());
 
+    const unsubscribe = spring.on("change", update);
     return unsubscribe;
   }, [spring, prefix, suffix, decimals]);
+
+  useEffect(() => {
+    if (inView) {
+      spring.set(value);
+    }
+  }, [inView, value, spring]);
 
   return (
     <span ref={ref} className={className}>

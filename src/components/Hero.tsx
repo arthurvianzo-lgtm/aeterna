@@ -70,9 +70,9 @@ export default function Hero() {
             variants={item}
             className="text-4xl font-bold leading-[1.12] tracking-tight text-slate-900 sm:text-5xl lg:text-[3.5rem]"
           >
-            Conectamos sua marca às melhores{" "}
+            Sua marca direto na{" "}
             <span className="text-gradient bg-gradient-to-r from-emerald-600 to-emerald-500">
-              fábricas de suplementos, cosméticos e peptídeos
+              fábrica certa
             </span>
           </motion.h1>
 
@@ -80,25 +80,28 @@ export default function Hero() {
             variants={item}
             className="mt-6 max-w-lg text-lg leading-relaxed text-slate-600"
           >
-            Sem garimpar fábrica, sem risco de fornecedor errado — a Aeterna já
-            validou os melhores parceiros de produção pra você. Curadoria,
-            negociação e acompanhamento de ponta a ponta.
+            Conectamos sua marca às melhores fábricas de suplementos,
+            cosméticos e peptídeos do Brasil — com condição melhor do que você
+            conseguiria sozinho.
           </motion.p>
 
-          <motion.div
-            variants={item}
-            className="mt-8 flex flex-col gap-3 sm:flex-row"
-          >
-            <OriginButton
-              onClick={() =>
-                window.open(buildWhatsAppLink(), "_blank", "noopener")
-              }
-              className="gap-2 rounded-full bg-emerald-600 px-7 text-base font-medium text-white shadow-xl shadow-emerald-900/20 hover:bg-emerald-700 hover:shadow-emerald-900/30"
+<motion.div
+              variants={item}
+              className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center"
             >
-              <MessageCircle className="h-5 w-5" />
-              Lançar Linha Própria
-            </OriginButton>
-          </motion.div>
+              <OriginButton
+                onClick={() =>
+                  window.open(buildWhatsAppLink(), "_blank", "noopener")
+                }
+                className="gap-2 rounded-full bg-emerald-600 px-7 text-base font-medium text-white shadow-xl shadow-emerald-900/20 hover:bg-emerald-700 hover:shadow-emerald-900/30"
+              >
+                <MessageCircle className="h-5 w-5" />
+                Quero minha indicação de fábrica
+              </OriginButton>
+              <span className="text-sm font-semibold text-emerald-700">
+                Receba uma indicação em até 48h
+              </span>
+            </motion.div>
 
           <motion.div
             variants={item}

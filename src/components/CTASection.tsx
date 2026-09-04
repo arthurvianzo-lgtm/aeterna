@@ -15,8 +15,8 @@ export default function CTASection() {
 
           <div className="relative mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-black leading-tight tracking-tight text-white sm:text-4xl">
-              Pronto para conectar sua marca às melhores fábricas?
-            </h2>
+              Pronto para encontrar a fábrica certa?
+        </h2>
             <p className="mt-4 text-lg text-emerald-50/90">
               Conte seu projeto, tire dúvidas e receba indicações de fábricas
               parceiras direto no WhatsApp. Sem burocracia, sem compromisso.
@@ -30,7 +30,7 @@ export default function CTASection() {
                 className="w-full gap-2 rounded-full bg-white px-8 text-base font-bold text-emerald-700 shadow-xl shadow-emerald-950/20 sm:w-auto"
               >
                 <MessageCircle className="h-5 w-5" />
-                Quero conectar minha marca
+                Quero falar com a Aeterna agora
               </OriginButton>
             </div>
 

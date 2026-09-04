@@ -39,10 +39,10 @@ export default function HowItWorks() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            Do alinhamento à entrega em{" "}
-            <span className="text-gradient bg-gradient-to-r from-emerald-600 to-emerald-500">
-              4 passos
-            </span>
+Como funciona a{" "}
+              <span className="text-gradient bg-gradient-to-r from-emerald-600 to-emerald-500">
+                conexão
+              </span>
           </h2>
           <p className="mt-4 text-lg text-slate-600">
             Um fluxo curado e transparente, desenhado para tirar das suas costas
@@ -86,7 +86,7 @@ export default function HowItWorks() {
             className="min-w-52 gap-2 rounded-full bg-slate-900 text-base font-medium text-white shadow-lg shadow-slate-900/20 hover:bg-slate-800"
           >
             <MessageCircle className="h-5 w-5" />
-            Começar meu processo
+            Quero minha indicação de fábrica
           </OriginButton>
         </Reveal>
       </div>
