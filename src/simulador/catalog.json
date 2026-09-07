@@ -1,0 +1,127 @@
+{
+  "produtos": [
+    {
+      "id": "whey-std",
+      "nome": "Whey Protein 900g · 30 doses",
+      "precoUnitario": 149.9,
+      "categoria": "Proteínas",
+      "descricaoCurta": "Proteína concentrada de alta qualidade, pós-treino e entre refeições."
+    },
+    {
+      "id": "whey-iso",
+      "nome": "Whey Isolado 900g · 30 doses",
+      "precoUnitario": 219.9,
+      "categoria": "Proteínas",
+      "descricaoCurta": "Absorção rápida, mínimo de lactose e gordura. Ideal para definição."
+    },
+    {
+      "id": "creatina",
+      "nome": "Creatina Monohidratada 300g",
+      "precoUnitario": 129.9,
+      "categoria": "Performance",
+      "descricaoCurta": "Força, potência e recuperação muscular em doses diárias."
+    },
+    {
+      "id": "pre-treino",
+      "nome": "Pré-Treino 300g",
+      "precoUnitario": 99.9,
+      "categoria": "Energia",
+      "descricaoCurta": "Energia e foco imediatos para treinos de alta intensidade."
+    },
+    {
+      "id": "bcaa",
+      "nome": "BCAA 2:1:1 · 120 cápsulas",
+      "precoUnitario": 79.9,
+      "categoria": "Recuperação",
+      "descricaoCurta": "Aminoácidos essenciais que reduzem a fadiga e aceleram a recuperação."
+    },
+    {
+      "id": "omega",
+      "nome": "Ômega 3 · 120 cápsulas",
+      "precoUnitario": 59.9,
+      "categoria": "Saúde",
+      "descricaoCurta": "Rico em EPA e DHA para coração, cérebro e articulações."
+    },
+    {
+      "id": "multivit",
+      "nome": "Multivitamínico · 60 comprimidos",
+      "precoUnitario": 69.9,
+      "categoria": "Saúde",
+      "descricaoCurta": "Complexo completo de vitaminas e minerais para o dia a dia."
+    },
+    {
+      "id": "termogenico",
+      "nome": "Termogênico · 60 cápsulas",
+      "precoUnitario": 89.9,
+      "categoria": "Emagrecimento",
+      "descricaoCurta": "Acelera o metabolismo e auxilia a queima de gordura."
+    },
+    {
+      "id": "hipercalorico",
+      "nome": "Hipercalórico 1,5kg",
+      "precoUnitario": 119.9,
+      "categoria": "Ganho de Massa",
+      "descricaoCurta": "Calorias e carboidratos de qualidade para ganho de peso e massa."
+    },
+    {
+      "id": "colageno",
+      "nome": "Colágeno Hidrolisado 500g",
+      "precoUnitario": 109.9,
+      "categoria": "Beleza",
+      "descricaoCurta": "Pele, unhas e articulações — o queridinho de quem busca beleza."
+    }
+  ],
+  "combos": [
+    {
+      "id": "performance-massa",
+      "nome": "Performance & Massa",
+      "tagline": "Combina ganho de massa muscular com força",
+      "badge": "Recomendado e mais econômico",
+      "recomendado": true,
+      "precoTotal": 349,
+      "composicao": [
+        { "produtoId": "whey-std", "percentual": 50 },
+        { "produtoId": "creatina", "percentual": 30 },
+        { "produtoId": "hipercalorico", "percentual": 20 }
+      ]
+    },
+    {
+      "id": "emagrecimento-shape",
+      "nome": "Emagrecimento & Shape",
+      "tagline": "Acelera o metabolismo e define sem perder energia",
+      "badge": "Suporte metabólico",
+      "precoTotal": 319,
+      "composicao": [
+        { "produtoId": "termogenico", "percentual": 40 },
+        { "produtoId": "omega", "percentual": 20 },
+        { "produtoId": "whey-iso", "percentual": 40 }
+      ]
+    },
+    {
+      "id": "vitalidade-recuperacao",
+      "nome": "Vitalidade & Recuperação",
+      "tagline": "Recuperação mais rápida e disposição diária",
+      "badge": "Bem-estar completo",
+      "precoTotal": 289,
+      "composicao": [
+        { "produtoId": "bcaa", "percentual": 35 },
+        { "produtoId": "multivit", "percentual": 35 },
+        { "produtoId": "colageno", "percentual": 30 }
+      ]
+    },
+    {
+      "id": "full-academy",
+      "nome": "Full Academy",
+      "tagline": "A linha completa para ofertar na sua academia",
+      "badge": "Mix completo",
+      "precoTotal": 599,
+      "composicao": [
+        { "produtoId": "whey-std", "percentual": 30 },
+        { "produtoId": "creatina", "percentual": 20 },
+        { "produtoId": "pre-treino", "percentual": 20 },
+        { "produtoId": "omega", "percentual": 15 },
+        { "produtoId": "multivit", "percentual": 15 }
+      ]
+    }
+  ]
+}
