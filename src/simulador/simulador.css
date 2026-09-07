@@ -1,42 +1,4 @@
-@theme {
-  --color-sim-surface: #0b0f1a;
-  --color-sim-panel: #111827;
-  --color-sim-panel-2: #1a2334;
-  --color-sim-line: #27334a;
-  --color-sim-gold: #f5a623;
-  --color-sim-mint: #10b981;
-  --color-sim-ink: #e6e9f0;
-  --color-sim-muted: #94a3b8;
-  --color-sim-danger: #f87171;
-}
-
-.sim-app {
-  font-family:
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    "Segoe UI",
-    Roboto,
-    "Helvetica Neue",
-    Arial,
-    sans-serif;
-}
-
-/* Scrollbar discreta para listas roláveis do simulador */
-.sim-app *::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-.sim-app *::-webkit-scrollbar-track {
-  background: transparent;
-}
-.sim-app *::-webkit-scrollbar-thumb {
-  background: #27334a;
-  border-radius: 9999px;
-}
-.sim-app *::-webkit-scrollbar-thumb:hover {
-  background: #36445f;
-}
+/* Escopos do simulador Aeterna sob o tema claro da landing page. */
 
 /* Esconde setas de inputs numéricos no simulador */
 .sim-app input[type="number"]::-webkit-outer-spin-button,
@@ -49,8 +11,27 @@
   appearance: textfield;
 }
 
+/* Scrollbar discreta para listas roláveis do simulador */
+.sim-app *::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.sim-app *::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sim-app *::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+.sim-app *::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
 /* Área de impressão: só a proposta aparece no PDF/print */
 @media print {
+  body {
+    background: white !important;
+  }
   .sim-app * {
     visibility: hidden;
   }
@@ -65,8 +46,5 @@
     width: 100%;
     background: white;
     color: #111827;
-  }
-  body {
-    background: white !important;
   }
 }

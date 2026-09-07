@@ -1,14 +1,17 @@
+export type LinhaProduto = "premium" | "basica" | "complementar";
+
 export type Produto = {
   id: string;
   nome: string;
-  precoUnitario: number;
   categoria: string;
-  descricaoCurta: string;
+  formato: string;
+  linha: LinhaProduto;
+  precoUnitario: number;
 };
 
-export type ComposicaoItem = {
+export type ComboItem = {
   produtoId: string;
-  percentual: number;
+  quantidade: number;
 };
 
 export type Combo = {
@@ -16,9 +19,8 @@ export type Combo = {
   nome: string;
   tagline: string;
   badge?: string;
-  composicao: ComposicaoItem[];
-  precoTotal: number;
   recomendado?: boolean;
+  itens: ComboItem[];
 };
 
 export type PlanoCompromissoId = "mensal" | "trimestral" | "anual";
@@ -34,19 +36,11 @@ export type PlanoCompromisso = {
 export type ItemPedido = {
   produtoId: string;
   quantidade: number;
-  precoUnitario: number;
-};
-
-export type ComboPedido = {
-  comboId: string;
-  quantidade: number;
-  precoTotal: number;
+  comboId?: string;
 };
 
 export type Pedido = {
-  itensAvulsos: ItemPedido[];
-  combos: ComboPedido[];
+  itens: ItemPedido[];
   planoId: PlanoCompromissoId;
-  margemRevenda: number;
-  observacao?: string;
+  observacaoPedido?: string;
 };

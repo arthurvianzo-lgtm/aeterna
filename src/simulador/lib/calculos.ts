@@ -1,30 +1,17 @@
 import {
+  COMISSAO_VENDEDOR_PERCENTUAL,
   DIAS_POR_MES,
-  MARGEM_META_SUGERIDA,
-  MARGEM_MINIMA,
   PLANOS,
-  VALOR_POR_PONTO,
+  produtoPorId,
 } from "@/simulador/config/regras-comerciais";
-import type {
-  ComboPedido,
-  ItemPedido,
-  PlanoCompromisso,
-  PlanoCompromissoId,
-} from "@/simulador/types";
+import type { ItemPedido, PlanoCompromisso, PlanoCompromissoId } from "@/simulador/types";
 
-/** Soma dos itens avulsos (sem desconto). */
-export function subtotalAvulsos(itens: ItemPedido[]): number {
-  return itens.reduce((acc, i) => acc + i.quantidade * i.precoUnitario, 0);
-}
-
-/** Soma dos combos selecionados (sem desconto). */
-export function subtotalCombos(combos: ComboPedido[]): number {
-  return combos.reduce((acc, c) => acc + c.quantidade * c.precoTotal, 0);
-}
-
-/** Custo bruto do pedido: combos + avulsos, sem desconto. */
-export function custoBruto(itens: ItemPedido[], combos: ComboPedido[]): number {
-  return subtotalAvulsos(itens) + subtotalCombos(combos);
+/** Subtotal do pedido = Σ quantidade × preço do catálogo (15% incluso). */
+export function subtotalPedido(itens: ItemPedido[]): number {
+  return itens.reduce((acc, item) => {
+    const produto = produtoPorId(item.produtoId);
+    return acc + (produto?.precoUnitario ?? 0) * item.quantidade;
+  }, 0);
 }
 
 export function planoPorId(id: PlanoCompromissoId): PlanoCompromisso {
@@ -32,13 +19,13 @@ export function planoPorId(id: PlanoCompromissoId): PlanoCompromisso {
 }
 
 /** Total do pedido aplicando o desconto do plano de compromisso. */
-export function totalComDesconto(custoBrutoTotal: number, descontoPercentual: number): number {
-  return custoBrutoTotal * (1 - descontoPercentual / 100);
+export function totalComDesconto(subtotal: number, descontoPercentual: number): number {
+  return subtotal * (1 - descontoPercentual / 100);
 }
 
 /** Economia = total sem desconto − total com desconto. */
-export function economia(custoBrutoTotal: number, totalLiquido: number): number {
-  return Math.max(0, custoBrutoTotal - totalLiquido);
+export function economia(subtotal: number, totalLiquido: number): number {
+  return Math.max(0, subtotal - totalLiquido);
 }
 
 /** Custo diário = total do plano / (duração em meses × 30). */
@@ -47,68 +34,39 @@ export function custoDiario(totalLiquido: number, duracaoMinimaMeses: number): n
   return totalLiquido / (duracaoMinimaMeses * DIAS_POR_MES);
 }
 
-/** Pontos por indicação: 1 ponto a cada VALOR_POR_PONTO de investimento. */
-export function pontosIndicacao(
-  investimento: number,
-  valorPorPonto: number = VALOR_POR_PONTO
-): number {
-  if (valorPorPonto <= 0) return 0;
-  return Math.floor(investimento / valorPorPonto);
-}
-
 /**
- * Preço de venda ao cliente = custo do consultor / (1 − margem%).
- * Este é o valor mínimo de venda que respeita a margem escolhida.
+ * Comissão do vendedor embutida nos preços do catálogo.
+ * Como o preço = fábrica × 1,15, a comissão é price × 15/115.
  */
-export function precoMinimoVenda(custo: number, margemPercentual: number): number {
-  const m = margemPercentual / 100;
-  if (m >= 1) return 0;
-  return custo / (1 - m);
-}
-
-/**
- * Comissão do consultor = (preço de venda − custo) × quantidade, somado ao longo
- * de todos os itens. Equivale a custoLiquido × (m / (1 − m)).
- */
-export function comissaoConsultor(custoLiquido: number, margemPercentual: number): number {
-  const m = margemPercentual / 100;
-  if (m >= 1) return 0;
-  return custoLiquido * (m / (1 - m));
+export function comissaoVendedor(subtotal: number): number {
+  return subtotal * (COMISSAO_VENDEDOR_PERCENTUAL / (1 + COMISSAO_VENDEDOR_PERCENTUAL));
 }
 
 export type ResumoPedido = {
-  custoBrutoTotal: number;
-  descontoPercentual: number;
+  subtotal: number;
   totalLiquido: number;
+  descontoPercentual: number;
   economiaTotal: number;
-  precoVendaCliente: number;
   comissao: number;
   custoDiario: number;
-  pontos: number;
   plano: PlanoCompromisso;
 };
 
 /** Consolida todos os indicadores do pedido a partir do estado atual. */
 export function resumoPedido(
   itens: ItemPedido[],
-  combos: ComboPedido[],
-  planoId: PlanoCompromissoId,
-  margemPercentual: number
+  planoId: PlanoCompromissoId
 ): ResumoPedido {
-  const bruto = custoBruto(itens, combos);
+  const subtotal = subtotalPedido(itens);
   const plano = planoPorId(planoId);
-  const liquido = totalComDesconto(bruto, plano.descontoPercentual);
+  const liquido = totalComDesconto(subtotal, plano.descontoPercentual);
   return {
-    custoBrutoTotal: bruto,
-    descontoPercentual: plano.descontoPercentual,
+    subtotal,
     totalLiquido: liquido,
-    economiaTotal: economia(bruto, liquido),
-    precoVendaCliente: precoMinimoVenda(liquido, margemPercentual),
-    comissao: comissaoConsultor(liquido, margemPercentual),
+    descontoPercentual: plano.descontoPercentual,
+    economiaTotal: economia(subtotal, liquido),
+    comissao: comissaoVendedor(liquido),
     custoDiario: custoDiario(liquido, plano.duracaoMinimaMeses),
-    pontos: pontosIndicacao(liquido),
     plano,
   };
 }
-
-export { MARGEM_MINIMA, MARGEM_META_SUGERIDA, VALOR_POR_PONTO, DIAS_POR_MES };

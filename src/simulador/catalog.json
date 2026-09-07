@@ -1,126 +1,270 @@
 {
   "produtos": [
     {
-      "id": "whey-std",
-      "nome": "Whey Protein 900g · 30 doses",
-      "precoUnitario": 149.9,
-      "categoria": "Proteínas",
-      "descricaoCurta": "Proteína concentrada de alta qualidade, pós-treino e entre refeições."
-    },
-    {
-      "id": "whey-iso",
-      "nome": "Whey Isolado 900g · 30 doses",
-      "precoUnitario": 219.9,
-      "categoria": "Proteínas",
-      "descricaoCurta": "Absorção rápida, mínimo de lactose e gordura. Ideal para definição."
-    },
-    {
-      "id": "creatina",
-      "nome": "Creatina Monohidratada 300g",
-      "precoUnitario": 129.9,
-      "categoria": "Performance",
-      "descricaoCurta": "Força, potência e recuperação muscular em doses diárias."
-    },
-    {
-      "id": "pre-treino",
-      "nome": "Pré-Treino 300g",
-      "precoUnitario": 99.9,
-      "categoria": "Energia",
-      "descricaoCurta": "Energia e foco imediatos para treinos de alta intensidade."
-    },
-    {
-      "id": "bcaa",
-      "nome": "BCAA 2:1:1 · 120 cápsulas",
-      "precoUnitario": 79.9,
-      "categoria": "Recuperação",
-      "descricaoCurta": "Aminoácidos essenciais que reduzem a fadiga e aceleram a recuperação."
-    },
-    {
-      "id": "omega",
-      "nome": "Ômega 3 · 120 cápsulas",
-      "precoUnitario": 59.9,
-      "categoria": "Saúde",
-      "descricaoCurta": "Rico em EPA e DHA para coração, cérebro e articulações."
-    },
-    {
-      "id": "multivit",
-      "nome": "Multivitamínico · 60 comprimidos",
-      "precoUnitario": 69.9,
-      "categoria": "Saúde",
-      "descricaoCurta": "Complexo completo de vitaminas e minerais para o dia a dia."
-    },
-    {
-      "id": "termogenico",
-      "nome": "Termogênico · 60 cápsulas",
-      "precoUnitario": 89.9,
+      "id": "moro-slim",
+      "nome": "Moro Slim",
       "categoria": "Emagrecimento",
-      "descricaoCurta": "Acelera o metabolismo e auxilia a queima de gordura."
+      "formato": "Cápsulas",
+      "linha": "premium",
+      "precoUnitario": 22.42
     },
     {
-      "id": "hipercalorico",
-      "nome": "Hipercalórico 1,5kg",
-      "precoUnitario": 119.9,
-      "categoria": "Ganho de Massa",
-      "descricaoCurta": "Calorias e carboidratos de qualidade para ganho de peso e massa."
+      "id": "pro-energy",
+      "nome": "Pro Energy",
+      "categoria": "Energia e disposição",
+      "formato": "Cápsulas",
+      "linha": "premium",
+      "precoUnitario": 19.43
     },
     {
-      "id": "colageno",
-      "nome": "Colágeno Hidrolisado 500g",
-      "precoUnitario": 109.9,
-      "categoria": "Beleza",
-      "descricaoCurta": "Pele, unhas e articulações — o queridinho de quem busca beleza."
+      "id": "bella-gummy",
+      "nome": "Bella Gummy (Biotina em Gummy)",
+      "categoria": "Beleza e bem-estar",
+      "formato": "Gomas",
+      "linha": "premium",
+      "precoUnitario": 37.83
+    },
+    {
+      "id": "slim-up-gota",
+      "nome": "Slim Up — Emagrecedor em Gota",
+      "categoria": "Emagrecimento",
+      "formato": "Gotas",
+      "linha": "premium",
+      "precoUnitario": 18.52
+    },
+    {
+      "id": "pre-treino-creatina-limao",
+      "nome": "Pré-treino + Creatina Sabor Limão (300g)",
+      "categoria": "Energia e disposição",
+      "formato": "Pó",
+      "linha": "premium",
+      "precoUnitario": 46.0
+    },
+    {
+      "id": "dores-musculares",
+      "nome": "Dores Musculares",
+      "categoria": "Dores articulares",
+      "formato": "Cápsulas",
+      "linha": "premium",
+      "precoUnitario": 16.1
+    },
+    {
+      "id": "serena",
+      "nome": "Serena",
+      "categoria": "Qualidade do sono",
+      "formato": "Gotas",
+      "linha": "premium",
+      "precoUnitario": 19.55
+    },
+    {
+      "id": "multivitaminico",
+      "nome": "Multivitamínico",
+      "categoria": "Imunidade",
+      "formato": "Cápsulas",
+      "linha": "premium",
+      "precoUnitario": 20.93
+    },
+    {
+      "id": "detox-shot-matinal-150",
+      "nome": "Detox (Shot Matinal) — 150g",
+      "categoria": "Emagrecimento",
+      "formato": "Pó",
+      "linha": "premium",
+      "precoUnitario": 31.62
+    },
+    {
+      "id": "detox-lemon-shot-300",
+      "nome": "Detox Matinal (Lemon Shot) — 300g",
+      "categoria": "Emagrecimento",
+      "formato": "Pó",
+      "linha": "premium",
+      "precoUnitario": 26.45
+    },
+    {
+      "id": "saude-intestinal",
+      "nome": "Saúde Intestinal",
+      "categoria": "Sistema digestivo",
+      "formato": "Cápsulas",
+      "linha": "premium",
+      "precoUnitario": 26.33
+    },
+    {
+      "id": "shot-colageno-300",
+      "nome": "Shot + Colágeno — 300g",
+      "categoria": "Emagrecimento",
+      "formato": "Pó",
+      "linha": "premium",
+      "precoUnitario": 48.18
+    },
+    {
+      "id": "zma",
+      "nome": "ZMA (Zinco, Magnésio e Vitamina D)",
+      "categoria": "Beleza e bem-estar",
+      "formato": "Cápsulas",
+      "linha": "premium",
+      "precoUnitario": 18.97
+    },
+    {
+      "id": "pre-treino-300",
+      "nome": "Pré-treino 300g",
+      "categoria": "Energia e disposição",
+      "formato": "Pó",
+      "linha": "premium",
+      "precoUnitario": 49.45
+    },
+    {
+      "id": "focus-colina",
+      "nome": "Focus Colina",
+      "categoria": "Foco e concentração",
+      "formato": "Cápsulas",
+      "linha": "premium",
+      "precoUnitario": 21.73
+    },
+    {
+      "id": "biotina-capsula",
+      "nome": "Biotina em Cápsula",
+      "categoria": "Beleza e bem-estar",
+      "formato": "Cápsulas",
+      "linha": "basica",
+      "precoUnitario": 10.23
+    },
+    {
+      "id": "creatina-150",
+      "nome": "Creatina Monohidratada 150g",
+      "categoria": "Energia e disposição",
+      "formato": "Pó",
+      "linha": "basica",
+      "precoUnitario": 23.0
+    },
+    {
+      "id": "emagrecedor-capsula",
+      "nome": "Emagrecedor em Cápsula",
+      "categoria": "Emagrecimento",
+      "formato": "Cápsulas",
+      "linha": "basica",
+      "precoUnitario": 13.68
+    },
+    {
+      "id": "slim-up-gota-basica",
+      "nome": "Slim Up — Emagrecimento em Gota",
+      "categoria": "Emagrecimento",
+      "formato": "Gotas",
+      "linha": "basica",
+      "precoUnitario": 14.72
+    },
+    {
+      "id": "zma-night",
+      "nome": "ZMA Night (Zinco + Magnésio + Vitamina D)",
+      "categoria": "Imunidade",
+      "formato": "Cápsulas",
+      "linha": "basica",
+      "precoUnitario": 15.87
+    },
+    {
+      "id": "creatina-300",
+      "nome": "Creatina Monohidratada 300g",
+      "categoria": "Energia e disposição",
+      "formato": "Pó",
+      "linha": "basica",
+      "precoUnitario": 32.19
+    },
+    {
+      "id": "creatina-gummy-frutas",
+      "nome": "Creatina Gummy Sabor Frutas Vermelhas",
+      "categoria": "Energia e disposição",
+      "formato": "Gomas",
+      "linha": "complementar",
+      "precoUnitario": 40.13
+    },
+    {
+      "id": "creatina-gummy-tutti",
+      "nome": "Creatina em Gummy Sabor Tutti-frutti",
+      "categoria": "Energia e disposição",
+      "formato": "Gomas",
+      "linha": "complementar",
+      "precoUnitario": 40.13
+    },
+    {
+      "id": "multi-vitta",
+      "nome": "Multi Vitta — Gestante e Lactante",
+      "categoria": "Imunidade",
+      "formato": "Cápsulas",
+      "linha": "complementar",
+      "precoUnitario": 15.87
+    },
+    {
+      "id": "bioprincess",
+      "nome": "Bioprincess",
+      "categoria": "Beleza e bem-estar",
+      "formato": "Cápsulas",
+      "linha": "complementar",
+      "precoUnitario": 15.98
+    },
+    {
+      "id": "omega-pro-tg",
+      "nome": "Ômega Pró TG",
+      "categoria": "Saúde geral",
+      "formato": "Cápsulas",
+      "linha": "complementar",
+      "precoUnitario": 29.78
+    },
+    {
+      "id": "melatonina-triptofanos",
+      "nome": "Melatonina + Triptofanos (Encapsulados)",
+      "categoria": "Qualidade do sono",
+      "formato": "Cápsulas",
+      "linha": "complementar",
+      "precoUnitario": 17.13
+    },
+    {
+      "id": "melatonina-gummy-uva",
+      "nome": "Melatonina em Gummy Sabor Uva",
+      "categoria": "Qualidade do sono",
+      "formato": "Gomas",
+      "linha": "complementar",
+      "precoUnitario": 36.68
     }
   ],
   "combos": [
     {
-      "id": "performance-massa",
-      "nome": "Performance & Massa",
-      "tagline": "Combina ganho de massa muscular com força",
-      "badge": "Recomendado e mais econômico",
+      "id": "kit-energia-forca",
+      "nome": "Energia & Força",
+      "tagline": "A dupla que os treinos mais pedem",
+      "badge": "Recomendado",
       "recomendado": true,
-      "precoTotal": 349,
-      "composicao": [
-        { "produtoId": "whey-std", "percentual": 50 },
-        { "produtoId": "creatina", "percentual": 30 },
-        { "produtoId": "hipercalorico", "percentual": 20 }
+      "itens": [
+        { "produtoId": "pre-treino-300", "quantidade": 100 },
+        { "produtoId": "creatina-300", "quantidade": 100 }
       ]
     },
     {
-      "id": "emagrecimento-shape",
+      "id": "kit-emagrecimento-shape",
       "nome": "Emagrecimento & Shape",
-      "tagline": "Acelera o metabolismo e define sem perder energia",
-      "badge": "Suporte metabólico",
-      "precoTotal": 319,
-      "composicao": [
-        { "produtoId": "termogenico", "percentual": 40 },
-        { "produtoId": "omega", "percentual": 20 },
-        { "produtoId": "whey-iso", "percentual": 40 }
+      "tagline": "Metabolismo acelerado com as gotas e o shot matinal",
+      "itens": [
+        { "produtoId": "moro-slim", "quantidade": 100 },
+        { "produtoId": "slim-up-gota", "quantidade": 100 },
+        { "produtoId": "detox-lemon-shot-300", "quantidade": 100 }
       ]
     },
     {
-      "id": "vitalidade-recuperacao",
-      "nome": "Vitalidade & Recuperação",
-      "tagline": "Recuperação mais rápida e disposição diária",
-      "badge": "Bem-estar completo",
-      "precoTotal": 289,
-      "composicao": [
-        { "produtoId": "bcaa", "percentual": 35 },
-        { "produtoId": "multivit", "percentual": 35 },
-        { "produtoId": "colageno", "percentual": 30 }
+      "id": "kit-beleza-vitalidade",
+      "nome": "Beleza & Vitalidade",
+      "tagline": "Biotina, colágeno e multivitamínico para o dia a dia",
+      "itens": [
+        { "produtoId": "bella-gummy", "quantidade": 100 },
+        { "produtoId": "biotina-capsula", "quantidade": 100 },
+        { "produtoId": "multivitaminico", "quantidade": 100 }
       ]
     },
     {
-      "id": "full-academy",
-      "nome": "Full Academy",
-      "tagline": "A linha completa para ofertar na sua academia",
-      "badge": "Mix completo",
-      "precoTotal": 599,
-      "composicao": [
-        { "produtoId": "whey-std", "percentual": 30 },
-        { "produtoId": "creatina", "percentual": 20 },
-        { "produtoId": "pre-treino", "percentual": 20 },
-        { "produtoId": "omega", "percentual": 15 },
-        { "produtoId": "multivit", "percentual": 15 }
+      "id": "kit-bem-estar-sono",
+      "nome": "Bem-estar & Sono",
+      "tagline": "Sono de qualidade e saúde intestinal",
+      "itens": [
+        { "produtoId": "serena", "quantidade": 100 },
+        { "produtoId": "melatonina-triptofanos", "quantidade": 100 },
+        { "produtoId": "saude-intestinal", "quantidade": 100 }
       ]
     }
   ]

@@ -1,196 +1,276 @@
-import { PackageOpen, Minus, Plus, Trash2, Wand2, X } from "lucide-react";
-import { comboPorId, produtoPorId, PLANOS } from "@/simulador/config/regras-comerciais";
+"use client";
+
+import { FileText, Minus, Plus, Trash2, Wand2, X, PackageOpen } from "lucide-react";
+import {
+  PLANOS,
+  produtoPorId,
+  comboPorId,
+  QUANTIDADE_MINIMA,
+} from "@/simulador/config/regras-comerciais";
 import { usePedidoStore } from "@/simulador/store/pedido";
+import { resumoPedido } from "@/simulador/lib/calculos";
 import { formatBRL } from "@/simulador/lib/format";
 
-export default function PedidoAtual() {
-  const itensAvulsos = usePedidoStore((s) => s.itensAvulsos);
-  const combos = usePedidoStore((s) => s.combos);
+export default function PedidoAtual({
+  aoGerarProposta,
+}: {
+  aoGerarProposta: () => void;
+}) {
+  const itens = usePedidoStore((s) => s.itens);
   const planoId = usePedidoStore((s) => s.planoId);
-  const carregarKitInteligente = usePedidoStore((s) => s.carregarKitInteligente);
+  const setPlanoId = usePedidoStore((s) => s.setPlanoId);
+  const observacaoPedido = usePedidoStore((s) => s.observacaoPedido);
+  const setObservacaoPedido = usePedidoStore((s) => s.setObservacaoPedido);
+  const carregarKitRecomendado = usePedidoStore((s) => s.carregarKitRecomendado);
   const zerarPedido = usePedidoStore((s) => s.zerarPedido);
 
-  const brutoCombos = combos.reduce((acc, c) => acc + c.quantidade * c.precoTotal, 0);
-  const brutoAvulsos = itensAvulsos.reduce(
-    (acc, i) => acc + i.quantidade * i.precoUnitario,
-    0
-  );
-  const bruto = brutoCombos + brutoAvulsos;
-  const plano = PLANOS.find((p) => p.id === planoId) ?? PLANOS[0];
-  const liquido = bruto * (1 - plano.descontoPercentual / 100);
-  const vazio = combos.length === 0 && itensAvulsos.length === 0;
+  const resumo = resumoPedido(itens, planoId);
+  const vazio = itens.length === 0;
+
+  const itensKit = itens.filter((i) => i.comboId);
+  const itensAvulsos = itens.filter((i) => !i.comboId);
 
   return (
-    <div className="flex min-h-[360px] flex-col overflow-hidden rounded-2xl border border-sim-line bg-sim-panel">
-      <div className="flex items-center gap-2 border-b border-sim-line px-4 py-3">
-        <PackageOpen className="h-4 w-4 text-sim-gold" />
-        <h3 className="text-sm font-bold">Pedido atual</h3>
+    <div className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm">
+      <div className="flex items-center gap-2 border-b border-slate-100 px-5 py-4">
+        <PackageOpen className="h-4 w-4 text-emerald-600" />
+        <h2 className="text-sm font-bold text-slate-900">Resumo do pedido</h2>
         {!vazio && (
-          <span className="ml-auto rounded-full bg-sim-gold/15 px-2 py-0.5 text-[11px] font-semibold text-sim-gold">
-            {combos.length + itensAvulsos.length} linha(s)
-          </span>
-        )}
-        {!vazio && (
-          <button
-            onClick={zerarPedido}
-            className="inline-flex items-center gap-1 rounded-md px-1.5 py-1 text-[11px] text-sim-muted transition hover:text-sim-danger"
-          >
-            <Trash2 className="h-3.5 w-3.5" /> Limpar
-          </button>
+          <>
+            <span className="ml-auto rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-600">
+              {itens.length} produto{itens.length > 1 ? "s" : ""}
+            </span>
+            <button
+              onClick={zerarPedido}
+              className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-[11px] font-medium text-slate-500 transition hover:bg-red-50 hover:text-red-600"
+            >
+              <Trash2 className="h-3.5 w-3.5" /> Limpar
+            </button>
+          </>
         )}
       </div>
 
-      {vazio ? (
-        <div className="flex flex-1 flex-col items-center justify-center gap-3 p-8 text-center">
-          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-sim-surface text-sim-muted">
-            <PackageOpen className="h-6 w-6" />
-          </span>
-          <p className="max-w-[240px] text-sm text-sim-muted">
-            Seu pedido está vazio. Adicione itens do catálogo ao lado.
-          </p>
-          <button
-            onClick={carregarKitInteligente}
-            className="mt-1 inline-flex items-center gap-2 rounded-xl border border-sim-mint/40 bg-sim-mint/10 px-4 py-2.5 text-sm font-semibold text-sim-mint transition hover:bg-sim-mint hover:text-black"
-          >
-            <Wand2 className="h-4 w-4" />
-            Carregar um kit inteligente do catálogo
-          </button>
-        </div>
-      ) : (
-        <div className="flex min-h-0 flex-1 flex-col">
-          <div className="max-h-[380px] flex-1 overflow-y-auto p-2">
-            {combos.length > 0 && (
-              <>
-                <p className="px-3 pb-1 pt-2 text-[11px] font-semibold uppercase tracking-wide text-sim-muted/70">
-                  Combos estratégicos
+      <div className="p-5">
+        {/* Plano de compromisso */}
+        <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+          Desconto por compromisso
+        </p>
+        <div className="mt-2 grid grid-cols-3 gap-2">
+          {PLANOS.map((plano) => {
+            const ativo = planoId === plano.id;
+            return (
+              <button
+                key={plano.id}
+                onClick={() => setPlanoId(plano.id)}
+                className={`rounded-xl border px-2 py-2 text-center transition ${
+                  ativo
+                    ? "border-emerald-500 bg-emerald-50 ring-2 ring-emerald-500/20"
+                    : "border-slate-200 bg-white hover:border-slate-300"
+                }`}
+              >
+                <p className={`text-xs font-bold ${ativo ? "text-emerald-700" : "text-slate-700"}`}>
+                  {plano.descontoPercentual > 0
+                    ? `−${plano.descontoPercentual}%`
+                    : "Padrão"}
                 </p>
-                {combos.map((c) => (
-                  <LinhaCombo key={c.comboId} comboId={c.comboId} />
-                ))}
-              </>
+                <p className="text-[10px] text-slate-500">
+                  {plano.duracaoMinimaMeses === 1
+                    ? "mensal"
+                    : `${plano.duracaoMinimaMeses} meses`}
+                </p>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Itens */}
+        {vazio ? (
+          <div className="mt-5 flex flex-col items-center gap-3 rounded-xl border border-dashed border-slate-200 p-6 text-center">
+            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-100 text-slate-400">
+              <PackageOpen className="h-5 w-5" />
+            </span>
+            <p className="max-w-60 text-sm text-slate-500">
+              Seu pedido está vazio. Adicione produtos do catálogo ou carregue um
+              kit pronto.
+            </p>
+            <button
+              onClick={carregarKitRecomendado}
+              className="mt-1 inline-flex items-center gap-2 rounded-full border border-emerald-300 bg-emerald-50 px-4 py-2 text-xs font-semibold text-emerald-700 transition hover:bg-emerald-100"
+            >
+              <Wand2 className="h-4 w-4" />
+              Carregar kit recomendado
+            </button>
+          </div>
+        ) : (
+          <div className="mt-5 space-y-4">
+            {itensKit.length > 0 && (
+              <div>
+                <p className="px-1 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+                  Kits estratégicos
+                </p>
+                <div className="mt-1 space-y-1">
+                  {itensKit.map((item) => (
+                    <LinhaItem key={item.produtoId} produtoId={item.produtoId} />
+                  ))}
+                </div>
+              </div>
             )}
             {itensAvulsos.length > 0 && (
-              <>
-                <p className="px-3 pb-1 pt-3 text-[11px] font-semibold uppercase tracking-wide text-sim-muted/70">
+              <div>
+                <p className="px-1 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
                   Produtos avulsos
                 </p>
-                {itensAvulsos.map((i) => (
-                  <LinhaAvulso key={i.produtoId} produtoId={i.produtoId} />
-                ))}
-              </>
+                <div className="mt-1 space-y-1">
+                  {itensAvulsos.map((item) => (
+                    <LinhaItem key={item.produtoId} produtoId={item.produtoId} />
+                  ))}
+                </div>
+              </div>
             )}
           </div>
+        )}
 
-          <div className="space-y-1 border-t border-sim-line p-4 text-sm">
-            <div className="flex justify-between text-sim-muted">
-              <span>Subtotal</span>
-              <span>{formatBRL(bruto)}</span>
-            </div>
-            <div className="flex justify-between text-sim-mint">
-              <span>Desconto {plano.nome}</span>
-              <span>
-                −{plano.descontoPercentual}%
-                {plano.descontoPercentual > 0 ? " · " + formatBRL(bruto - liquido) : ""}
+        {/* Totais */}
+        {!vazio && (
+          <div className="mt-5 space-y-1.5 border-t border-slate-100 pt-4 text-sm">
+            <div className="flex items-center justify-between text-slate-600">
+              <span>Subtotal (15% incluso)</span>
+              <span className="font-semibold text-slate-900">
+                {formatBRL(resumo.subtotal)}
               </span>
             </div>
-            <div className="mt-2 flex justify-between border-t border-sim-line pt-2 text-base font-bold text-sim-ink">
-              <span>Total {plano.nome}</span>
-              <span>{formatBRL(liquido)}</span>
+            <div className="flex items-center justify-between text-emerald-700">
+              <span>Desconto {resumo.plano.nome}</span>
+              <span className="font-semibold">
+                −{resumo.descontoPercentual}%
+                {resumo.descontoPercentual > 0
+                  ? ` (${formatBRL(resumo.economiaTotal)})`
+                  : ""}
+              </span>
             </div>
+            <div className="flex items-center justify-between border-t border-slate-100 pt-3 text-base font-black text-slate-900">
+              <span>Total do pedido</span>
+              <span>{formatBRL(resumo.totalLiquido)}</span>
+            </div>
+            <p className="text-right text-[11px] text-slate-400">
+              Custo diário ≈ {formatBRL(resumo.custoDiario)} · {resumo.plano.duracaoMinimaMeses}{" "}
+              {resumo.plano.duracaoMinimaMeses === 1 ? "mês" : "meses"}
+            </p>
+          </div>
+        )}
+
+        {/* Comissão (área restrita) */}
+        <div className="mt-4 flex items-start justify-between gap-3 rounded-xl bg-slate-900 p-4 text-white">
+          <div>
+            <div className="flex items-center gap-1.5">
+              <p className="text-xs font-semibold text-slate-300">
+                Comissão do vendedor
+              </p>
+              <span className="rounded bg-emerald-500 px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wide text-white">
+                Área restrita
+              </span>
+            </div>
+            <p className="mt-1 text-2xl font-black text-emerald-400">
+              {formatBRL(resumo.comissao)}
+            </p>
+            <p className="text-[11px] text-slate-400">
+              15% incluso no preço. Nunca vai para a proposta do cliente.
+            </p>
           </div>
         </div>
-      )}
-    </div>
-  );
-}
 
-function LinhaCombo({ comboId }: { comboId: string }) {
-  const combo = comboPorId(comboId)!;
-  const quantidade = usePedidoStore((s) =>
-    s.combos.find((c) => c.comboId === comboId)?.quantidade ?? 1
-  );
-  const atualizarQuantidadeCombo = usePedidoStore((s) => s.atualizarQuantidadeCombo);
-  const removerCombo = usePedidoStore((s) => s.removerCombo);
+        {/* Observação final */}
+        <div className="mt-4">
+          <label
+            htmlFor="observacao"
+            className="mb-1 block text-[11px] font-semibold uppercase tracking-wide text-slate-500"
+          >
+            Observação final da proposta
+          </label>
+          <textarea
+            id="observacao"
+            rows={2}
+            value={observacaoPedido}
+            onChange={(e) => setObservacaoPedido(e.target.value)}
+            placeholder="Ex.: Condição especial para fechamento deste mês."
+            className="w-full resize-none rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-emerald-500/30 transition placeholder:text-slate-400 focus:border-emerald-500 focus:ring-4"
+          />
+        </div>
 
-  return (
-    <div className="rounded-xl px-3 py-2 hover:bg-sim-surface/60">
-      <div className="flex items-center justify-between gap-2">
-        <p className="truncate text-[13px] font-semibold text-sim-ink">{combo.nome}</p>
         <button
-          onClick={() => removerCombo(comboId)}
-          className="text-sim-muted transition hover:text-sim-danger"
-          aria-label={`Remover ${combo.nome}`}
+          onClick={aoGerarProposta}
+          disabled={vazio}
+          className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-emerald-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-emerald-900/20 transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-40"
         >
-          <X className="h-4 w-4" />
+          <FileText className="h-4 w-4" />
+          Gerar Proposta Oficial
         </button>
       </div>
-      <div className="mt-1.5 flex items-center justify-between">
-        <div className="flex items-center gap-1 rounded-lg border border-sim-line bg-sim-surface">
-          <button
-            className="px-2 py-1 text-sim-muted transition hover:text-sim-gold"
-            onClick={() => atualizarQuantidadeCombo(comboId, quantidade - 1)}
-          >
-            <Minus className="h-3.5 w-3.5" />
-          </button>
-          <span className="w-8 text-center text-sm font-semibold">{quantidade}</span>
-          <button
-            className="px-2 py-1 text-sim-muted transition hover:text-sim-gold"
-            onClick={() => atualizarQuantidadeCombo(comboId, quantidade + 1)}
-          >
-            <Plus className="h-3.5 w-3.5" />
-          </button>
-        </div>
-        <div className="text-right">
-          <p className="text-sm font-bold text-sim-ink">
-            {formatBRL(combo.precoTotal * quantidade)}
-          </p>
-          <p className="text-[10px] text-sim-muted">{formatBRL(combo.precoTotal)}/mês</p>
-        </div>
-      </div>
     </div>
   );
 }
 
-function LinhaAvulso({ produtoId }: { produtoId: string }) {
+function LinhaItem({ produtoId }: { produtoId: string }) {
   const produto = produtoPorId(produtoId)!;
-  const quantidade = usePedidoStore((s) =>
-    s.itensAvulsos.find((i) => i.produtoId === produtoId)?.quantidade ?? 1
-  );
-  const atualizarQuantidadeAvulso = usePedidoStore((s) => s.atualizarQuantidadeAvulso);
-  const removerAvulso = usePedidoStore((s) => s.removerAvulso);
+  const item = usePedidoStore((s) => s.itens.find((i) => i.produtoId === produtoId));
+  const atualizarQuantidade = usePedidoStore((s) => s.atualizarQuantidade);
+  const removerItem = usePedidoStore((s) => s.removerItem);
+
+  const combo = item?.comboId ? comboPorId(item.comboId) : undefined;
+  const quantidade = item?.quantidade ?? 0;
+  const total = produto.precoUnitario * quantidade;
 
   return (
-    <div className="rounded-xl px-3 py-2 hover:bg-sim-surface/60">
+    <div className="rounded-xl border border-slate-100 bg-slate-50/70 px-3 py-2.5">
       <div className="flex items-center justify-between gap-2">
-        <p className="truncate text-[13px] font-semibold text-sim-ink">{produto.nome}</p>
-        <button
-          onClick={() => removerAvulso(produtoId)}
-          className="text-sim-muted transition hover:text-sim-danger"
-          aria-label={`Remover ${produto.nome}`}
-        >
-          <X className="h-4 w-4" />
-        </button>
-      </div>
-      <div className="mt-1.5 flex items-center justify-between">
-        <div className="flex items-center gap-1 rounded-lg border border-sim-line bg-sim-surface">
+        <p className="truncate text-[13px] font-semibold text-slate-900">
+          {produto.nome}
+        </p>
+        <div className="flex shrink-0 items-center gap-1">
+          <span className="text-[11px] text-slate-400">
+            {formatBRL(produto.precoUnitario)}/un.
+          </span>
           <button
-            className="px-2 py-1 text-sim-muted transition hover:text-sim-gold"
-            onClick={() => atualizarQuantidadeAvulso(produtoId, quantidade - 1)}
+            onClick={() => removerItem(produtoId)}
+            className="inline-flex h-6 w-6 items-center justify-center rounded-md text-slate-400 transition hover:bg-red-50 hover:text-red-600"
+            aria-label="Remover"
+          >
+            <X className="h-4 w-4" />
+          </button>
+        </div>
+      </div>
+      <div className="mt-1.5 flex items-center justify-between gap-2">
+        <div className="flex items-center gap-1 rounded-full border border-slate-200 bg-white">
+          <button
+            onClick={() =>
+              atualizarQuantidade(produtoId, quantidade - QUANTIDADE_MINIMA)
+            }
+            disabled={quantidade <= QUANTIDADE_MINIMA}
+            className="px-2 py-1 text-slate-500 transition hover:text-slate-900 disabled:opacity-30"
+            aria-label="Diminuir"
           >
             <Minus className="h-3.5 w-3.5" />
           </button>
-          <span className="w-8 text-center text-sm font-semibold">{quantidade}</span>
+          <span className="w-12 text-center text-sm font-bold text-slate-900">
+            {quantidade}
+          </span>
           <button
-            className="px-2 py-1 text-sim-muted transition hover:text-sim-gold"
-            onClick={() => atualizarQuantidadeAvulso(produtoId, quantidade + 1)}
+            onClick={() =>
+              atualizarQuantidade(produtoId, quantidade + QUANTIDADE_MINIMA)
+            }
+            className="px-2 py-1 text-slate-500 transition hover:text-slate-900"
+            aria-label="Aumentar"
           >
             <Plus className="h-3.5 w-3.5" />
           </button>
         </div>
-        <p className="text-sm font-bold text-sim-ink">
-          {formatBRL(produto.precoUnitario * quantidade)}
-        </p>
+        <p className="text-sm font-bold text-slate-900">{formatBRL(total)}</p>
       </div>
+      {combo && (
+        <p className="mt-1 text-[10px] font-medium text-emerald-700">
+          parte do kit “{combo.nome}”
+        </p>
+      )}
     </div>
   );
 }

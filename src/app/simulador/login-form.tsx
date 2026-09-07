@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { LockKeyhole, LogIn, ShieldCheck } from "lucide-react";
@@ -33,27 +34,35 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="sim-app flex min-h-screen items-center justify-center bg-sim-surface px-4 text-sim-ink">
+    <div className="sim-app flex min-h-screen items-center justify-center bg-slate-50 px-4 text-slate-900">
       <form
         onSubmit={entrar}
-        className="w-full max-w-sm rounded-2xl border border-sim-line bg-sim-panel p-6 shadow-lg shadow-black/30"
+        className="w-full max-w-sm rounded-2xl border border-slate-200/80 bg-white p-8 shadow-xl shadow-slate-200/60"
       >
         <div className="flex flex-col items-center text-center">
-          <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-sim-gold/15 text-sim-gold">
+          <Image
+            src="/logo.svg"
+            alt="Aeterna"
+            width={140}
+            height={35}
+            priority
+            className="h-9 w-auto object-contain"
+          />
+          <div className="mt-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
             <LockKeyhole className="h-6 w-6" />
-          </span>
+          </div>
           <h1 className="mt-4 text-xl font-black tracking-tight">
-            Simulador Aeterna
+            Simulador de vendas
           </h1>
-          <p className="mt-1 text-sm text-sim-muted">
-            Acesso restrito à equipe de vendas B2B.
+          <p className="mt-1 text-sm text-slate-500">
+            Acesso restrito à equipe comercial B2B.
           </p>
         </div>
 
         <div className="mt-6">
           <label
             htmlFor="codigo-acesso"
-            className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-sim-muted"
+            className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-slate-500"
           >
             Código de acesso
           </label>
@@ -64,10 +73,10 @@ export default function LoginForm() {
             onChange={(e) => setCodigo(e.target.value)}
             placeholder="Digite o código do consultor"
             autoFocus
-            className="w-full rounded-lg border border-sim-line bg-sim-surface px-3 py-2.5 text-sm outline-none transition placeholder:text-sim-muted/60 focus:border-sim-gold/60 focus:ring-2 focus:ring-sim-gold/20"
+            className="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm text-slate-900 outline-none ring-emerald-500/30 transition placeholder:text-slate-400 focus:border-emerald-500 focus:ring-4"
           />
           {erro && (
-            <p className="mt-2 rounded-lg border border-sim-danger/30 bg-sim-danger/10 px-3 py-2 text-xs text-sim-danger">
+            <p className="mt-2 rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-xs text-red-600">
               {erro}
             </p>
           )}
@@ -76,15 +85,15 @@ export default function LoginForm() {
         <button
           type="submit"
           disabled={carregando || !codigo.trim()}
-          className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-sim-gold px-4 py-3 text-sm font-bold text-black transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-40"
+          className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-emerald-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-emerald-900/20 transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-40"
         >
           <LogIn className="h-4 w-4" />
           {carregando ? "Entrando..." : "Entrar no simulador"}
         </button>
 
-        <p className="mt-4 flex items-start justify-center gap-1.5 text-[11px] text-sim-muted">
-          <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-sim-mint" />
-          Área interna: dados de comissão jamais aparecem na proposta do cliente.
+        <p className="mt-4 flex items-start justify-center gap-1.5 text-[11px] text-slate-500">
+          <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-600" />
+          Área interna: a comissão de 15% jamais aparece na proposta do cliente.
         </p>
       </form>
     </div>
