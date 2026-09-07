@@ -44,3 +44,18 @@ export type Pedido = {
   planoId: PlanoCompromissoId;
   observacaoPedido?: string;
 };
+
+export type Cliente = {
+  id: string;
+  nome: string;
+  contato: string;
+  anotacao?: string;
+  criadoEm: string;
+};
+
+export type KitPersonalizado = {
+  id: string;
+  nome: string;
+  itens: ComboItem[];
+  criadoEm: string;
+};

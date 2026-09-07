@@ -1,13 +1,12 @@
 "use client";
 
-import { FileText, Minus, Plus, Trash2, Wand2, X, PackageOpen } from "lucide-react";
+import { FileText, Minus, Plus, Trash2, Wand2, X, PackageOpen, User } from "lucide-react";
 import {
   PLANOS,
   produtoPorId,
-  comboPorId,
   QUANTIDADE_MINIMA,
 } from "@/simulador/config/regras-comerciais";
-import { usePedidoStore } from "@/simulador/store/pedido";
+import { nomeDeKit, usePedidoStore } from "@/simulador/store/pedido";
 import { resumoPedido } from "@/simulador/lib/calculos";
 import { formatBRL } from "@/simulador/lib/format";
 
@@ -23,6 +22,9 @@ export default function PedidoAtual({
   const setObservacaoPedido = usePedidoStore((s) => s.setObservacaoPedido);
   const carregarKitRecomendado = usePedidoStore((s) => s.carregarKitRecomendado);
   const zerarPedido = usePedidoStore((s) => s.zerarPedido);
+  const nomeCliente = usePedidoStore((s) => s.nomeCliente);
+  const setNomeCliente = usePedidoStore((s) => s.setNomeCliente);
+  const clientes = usePedidoStore((s) => s.clientes);
 
   const resumo = resumoPedido(itens, planoId);
   const vazio = itens.length === 0;
@@ -51,8 +53,41 @@ export default function PedidoAtual({
       </div>
 
       <div className="p-5">
-        {/* Plano de compromisso */}
+        {/* Cliente */}
         <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+          Cliente
+        </p>
+        <div className="mt-2 flex items-center gap-2">
+          <div className="relative min-w-0 flex-1">
+            <User className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+            <input
+              type="text"
+              value={nomeCliente}
+              onChange={(e) => setNomeCliente(e.target.value)}
+              placeholder="Nome do cliente"
+              className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-sm text-slate-900 outline-none ring-emerald-500/30 transition placeholder:text-slate-400 focus:border-emerald-500 focus:ring-4"
+            />
+          </div>
+          {clientes.length > 0 && (
+            <select
+              value=""
+              onChange={(e) => {
+                if (e.target.value) setNomeCliente(e.target.value);
+              }}
+              className="shrink-0 rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-600 outline-none transition focus:border-emerald-500"
+            >
+              <option value="">Cadastrados</option>
+              {clientes.map((c) => (
+                <option key={c.id} value={c.nome}>
+                  {c.nome}
+                </option>
+              ))}
+            </select>
+          )}
+        </div>
+
+        {/* Plano de compromisso */}
+        <p className="mt-4 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
           Desconto por compromisso
         </p>
         <div className="mt-2 grid grid-cols-3 gap-2">
@@ -216,7 +251,7 @@ function LinhaItem({ produtoId }: { produtoId: string }) {
   const atualizarQuantidade = usePedidoStore((s) => s.atualizarQuantidade);
   const removerItem = usePedidoStore((s) => s.removerItem);
 
-  const combo = item?.comboId ? comboPorId(item.comboId) : undefined;
+  const combo = nomeDeKit(item?.comboId);
   const quantidade = item?.quantidade ?? 0;
   const total = produto.precoUnitario * quantidade;
 
@@ -268,7 +303,7 @@ function LinhaItem({ produtoId }: { produtoId: string }) {
       </div>
       {combo && (
         <p className="mt-1 text-[10px] font-medium text-emerald-700">
-          parte do kit “{combo.nome}”
+          parte do kit “{combo}”
         </p>
       )}
     </div>

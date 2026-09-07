@@ -32,6 +32,12 @@
   body {
     background: white !important;
   }
+  .sim-app,
+  .sim-app > div,
+  .sim-app main {
+    height: auto !important;
+    overflow: visible !important;
+  }
   .sim-app * {
     visibility: hidden;
   }
@@ -41,8 +47,8 @@
   }
   .sim-app #documento-proposta {
     position: absolute;
+    inset-inline: 0;
     top: 0;
-    left: 0;
     width: 100%;
     background: white;
     color: #111827;
